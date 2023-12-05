@@ -1,0 +1,233 @@
+area-sub-wlsubj001_benson14_varea
+problemas de convergencia V3, TO1
+psf hemisferios un aprte izquierdo, resto derecho
+psf beta
+solo frecuencia clase 3 (reverse spirals)
+
+          Mixed Linear Model Regression Results
+==========================================================
+Model:            MixedLM Dependent Variable: psf         
+No. Observations: 119961  Method:             REML        
+No. Groups:       12      Scale:              3.6006      
+Min. group size:  7741    Log-Likelihood:     -247105.8013
+Max. group size:  13548   Converged:          Yes         
+Mean group size:  9996.8                                  
+-----------------------------------------------------------
+           Coef.   Std.Err.     z     P>|z|  [0.025  0.975]
+-----------------------------------------------------------
+Intercept   1.629     0.084   19.467  0.000   1.465   1.792
+side       -0.249     0.021  -12.058  0.000  -0.290  -0.209
+ecc        -0.048     0.002  -30.518  0.000  -0.051  -0.045
+side:ecc    0.032     0.002   15.207  0.000   0.028   0.037
+Group Var   0.081     0.018                                
+==========================================================
+
+
+          Mixed Linear Model Regression Results
+==========================================================
+Model:            MixedLM Dependent Variable: psf         
+No. Observations: 107763  Method:             REML        
+No. Groups:       12      Scale:              2.6609      
+Min. group size:  7411    Log-Likelihood:     -205685.8593
+Max. group size:  11387   Converged:          Yes         
+Mean group size:  8980.2                                  
+-----------------------------------------------------------
+           Coef.   Std.Err.     z     P>|z|  [0.025  0.975]
+-----------------------------------------------------------
+Intercept   1.318     0.062   21.244  0.000   1.197   1.440
+side       -0.069     0.017   -4.025  0.000  -0.103  -0.035
+ecc        -0.032     0.001  -27.266  0.000  -0.035  -0.030
+side:ecc    0.006     0.002    3.456  0.001   0.002   0.009
+Group Var   0.044     0.012                                
+==========================================================
+
+
+          Mixed Linear Model Regression Results
+==========================================================
+Model:            MixedLM Dependent Variable: psf         
+No. Observations: 77988   Method:             REML        
+No. Groups:       12      Scale:              2.4811      
+Min. group size:  5323    Log-Likelihood:     -146137.7048
+Max. group size:  8295    Converged:          Yes         
+Mean group size:  6499.0                                  
+-----------------------------------------------------------
+           Coef.   Std.Err.     z     P>|z|  [0.025  0.975]
+-----------------------------------------------------------
+Intercept   1.364     0.065   20.881  0.000   1.236   1.492
+side        0.114     0.017    6.606  0.000   0.080   0.148
+ecc        -0.028     0.001  -23.459  0.000  -0.030  -0.025
+side:ecc   -0.013     0.002   -8.088  0.000  -0.016  -0.010
+Group Var   0.049     0.011                                
+==========================================================
+
+
+          Mixed Linear Model Regression Results
+=========================================================
+Model:            MixedLM Dependent Variable: psf        
+No. Observations: 35577   Method:             REML       
+No. Groups:       12      Scale:              2.1439     
+Min. group size:  2363    Log-Likelihood:     -64091.2622
+Max. group size:  3597    Converged:          Yes        
+Mean group size:  2964.8                                 
+----------------------------------------------------------
+            Coef.  Std.Err.    z     P>|z|  [0.025  0.975]
+----------------------------------------------------------
+Intercept   1.097     0.097  11.317  0.000   0.907   1.287
+side        0.351     0.023  15.352  0.000   0.306   0.396
+ecc         0.011     0.001   7.750  0.000   0.008   0.014
+side:ecc    0.003     0.002   1.315  0.189  -0.001   0.007
+Group Var   0.109     0.032                               
+=========================================================
+
+
+          Mixed Linear Model Regression Results
+=========================================================
+Model:            MixedLM Dependent Variable: psf        
+No. Observations: 23612   Method:             REML       
+No. Groups:       12      Scale:              1.2622     
+Min. group size:  1593    Log-Likelihood:     -36297.5320
+Max. group size:  2632    Converged:          Yes        
+Mean group size:  1967.7                                 
+---------------------------------------------------------
+              Coef.  Std.Err.    z    P>|z| [0.025 0.975]
+---------------------------------------------------------
+Intercept      1.406    0.097  14.541 0.000  1.216  1.595
+side          -0.167    0.023  -7.262 0.000 -0.212 -0.122
+ecc           -0.027    0.002 -17.824 0.000 -0.030 -0.024
+side:ecc       0.041    0.002  18.539 0.000  0.036  0.045
+Group Var      0.109    0.041                            
+=========================================================
+
+
+          Mixed Linear Model Regression Results
+=========================================================
+Model:            MixedLM Dependent Variable: psf        
+No. Observations: 14899   Method:             REML       
+No. Groups:       12      Scale:              0.4644     
+Min. group size:  982     Log-Likelihood:     -15471.1332
+Max. group size:  1462    Converged:          Yes        
+Mean group size:  1241.6                                 
+----------------------------------------------------------
+           Coef.   Std.Err.    z     P>|z|  [0.025  0.975]
+----------------------------------------------------------
+Intercept   0.434     0.068   6.429  0.000   0.302   0.566
+side        0.320     0.019  16.574  0.000   0.282   0.358
+ecc        -0.002     0.001  -1.573  0.116  -0.005   0.001
+side:ecc    0.005     0.002   3.177  0.001   0.002   0.009
+Group Var   0.052     0.033                               
+=========================================================
+
+
+          Mixed Linear Model Regression Results
+=========================================================
+Model:            MixedLM Dependent Variable: psf        
+No. Observations: 23264   Method:             REML       
+No. Groups:       12      Scale:              1.0281     
+Min. group size:  1465    Log-Likelihood:     -33377.1359
+Max. group size:  2479    Converged:          Yes        
+Mean group size:  1938.7                                 
+---------------------------------------------------------
+              Coef.  Std.Err.    z    P>|z| [0.025 0.975]
+---------------------------------------------------------
+Intercept      1.262    0.085  14.928 0.000  1.096  1.428
+side           0.296    0.019  15.661 0.000  0.259  0.333
+ecc           -0.052    0.001 -50.321 0.000 -0.054 -0.050
+side:ecc       0.003    0.002   1.535 0.125 -0.001  0.006
+Group Var      0.084    0.035                            
+=========================================================
+
+
+          Mixed Linear Model Regression Results
+=========================================================
+Model:            MixedLM Dependent Variable: psf        
+No. Observations: 21834   Method:             REML       
+No. Groups:       12      Scale:              0.5520     
+Min. group size:  1443    Log-Likelihood:     -24541.5463
+Max. group size:  2463    Converged:          Yes        
+Mean group size:  1819.5                                 
+---------------------------------------------------------
+              Coef.  Std.Err.    z    P>|z| [0.025 0.975]
+---------------------------------------------------------
+Intercept      0.921    0.076  12.168 0.000  0.773  1.070
+side           0.113    0.018   6.341 0.000  0.078  0.148
+ecc           -0.016    0.001 -17.568 0.000 -0.018 -0.014
+side:ecc      -0.008    0.001  -6.595 0.000 -0.011 -0.006
+Group Var      0.067    0.039                            
+=========================================================
+
+
+          Mixed Linear Model Regression Results
+=========================================================
+Model:            MixedLM Dependent Variable: psf        
+No. Observations: 24106   Method:             REML       
+No. Groups:       12      Scale:              0.4177     
+Min. group size:  1552    Log-Likelihood:     -23734.1567
+Max. group size:  2675    Converged:          Yes        
+Mean group size:  2008.8                                 
+---------------------------------------------------------
+              Coef.  Std.Err.    z    P>|z| [0.025 0.975]
+---------------------------------------------------------
+Intercept      0.595    0.083   7.151 0.000  0.432  0.758
+side           0.243    0.015  16.483 0.000  0.214  0.272
+ecc            0.004    0.001   4.633 0.000  0.002  0.006
+side:ecc      -0.020    0.001 -15.545 0.000 -0.023 -0.018
+Group Var      0.081    0.054                            
+=========================================================
+
+
+          Mixed Linear Model Regression Results
+=========================================================
+Model:            MixedLM Dependent Variable: psf        
+No. Observations: 15884   Method:             REML       
+No. Groups:       12      Scale:              0.2094     
+Min. group size:  1066    Log-Likelihood:     -10172.1582
+Max. group size:  1744    Converged:          Yes        
+Mean group size:  1323.7                                 
+----------------------------------------------------------
+           Coef.   Std.Err.    z     P>|z|  [0.025  0.975]
+----------------------------------------------------------
+Intercept   0.344     0.077   4.439  0.000   0.192   0.496
+side       -0.071     0.015  -4.768  0.000  -0.100  -0.042
+ecc        -0.004     0.001  -5.413  0.000  -0.006  -0.003
+side:ecc    0.003     0.001   2.852  0.004   0.001   0.006
+Group Var   0.071     0.066                               
+=========================================================
+
+
+          Mixed Linear Model Regression Results
+=========================================================
+Model:            MixedLM Dependent Variable: psf        
+No. Observations: 14444   Method:             REML       
+No. Groups:       12      Scale:              0.6303     
+Min. group size:  901     Log-Likelihood:     -17210.8491
+Max. group size:  1564    Converged:          No         
+Mean group size:  1203.7                                 
+---------------------------------------------------------
+              Coef.  Std.Err.    z    P>|z| [0.025 0.975]
+---------------------------------------------------------
+Intercept      1.003    0.126   7.949 0.000  0.756  1.251
+side          -0.414    0.025 -16.257 0.000 -0.463 -0.364
+ecc           -0.040    0.002 -25.613 0.000 -0.043 -0.037
+side:ecc       0.006    0.002   2.672 0.008  0.002  0.010
+Group Var      0.187    0.142                            
+=========================================================
+
+
+          Mixed Linear Model Regression Results
+=========================================================
+Model:            MixedLM Dependent Variable: psf        
+No. Observations: 52789   Method:             REML       
+No. Groups:       12      Scale:              1.2016     
+Min. group size:  3646    Log-Likelihood:     -79803.2876
+Max. group size:  5578    Converged:          Yes        
+Mean group size:  4399.1                                 
+---------------------------------------------------------
+              Coef.  Std.Err.    z    P>|z| [0.025 0.975]
+---------------------------------------------------------
+Intercept      1.263    0.097  13.066 0.000  1.073  1.452
+side          -0.128    0.016  -7.766 0.000 -0.160 -0.096
+ecc           -0.012    0.001 -13.478 0.000 -0.014 -0.010
+side:ecc       0.008    0.001   5.984 0.000  0.005  0.010
+Group Var      0.110    0.043                            
+=========================================================
+

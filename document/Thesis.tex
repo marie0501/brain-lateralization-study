@@ -88,6 +88,9 @@
 
 \mainmatter
 
+Durante la segunda mitad del siglo XX, el foco central de la biología estuvo en el gen. Ahora, en la primera mitad del siglo XXI, la atención se ha desplazado hacia la ciencia neuronal y, específicamente, hacia la biología de la mente. Deseamos comprender los procesos mediante los cuales percibimos, actuamos, aprendemos y recordamos.
+La visión, un sentido particularmente bien comprendido y ampliamente utilizado por los humanos, adquiere información a través de las propiedades de la luz. La luz reflejada por los objetos del entorno varía en longitud de onda e intensidad y fluctúa en el espacio y el tiempo y, a través de esas propiedades físicas, transmite evidencia del mundo que nos rodea. Proyectada como imágenes estampadas sobre la retina, la energía luminosa se transduce en señales neuronales mediante células receptoras específicas. Las propiedades probatorias de estas imágenes son detectadas por un conjunto de sistemas neuronales especializados que detectan formas de contraste y transmiten esta información al resto del cerebro.
+
 \include{MainMatter/Introduction}
 
 El cerebro humano es el órgano central del sistema nervioso, una estructura sumamente especializada que procesa información, regula funciones corporales y, de manera crucial, da origen a nuestra cognición. Dentro de este órgano se encuentra la clave para comprender el misterio de la mente humana. Las neuronas, células especializadas en la transmisión de señales eléctricas, forman intrincadas redes que constituyen la base de nuestros pensamientos, percepciones y experiencias.
@@ -384,6 +387,51 @@ La teoría del DFF sostiene que ambos hemisferios tienen acceso a la informació
 
 En resumen, la teoría DFF ofrece una explicación para las diferencias en la percepción visual entre los hemisferios cerebrales, destacando la importancia de la frecuencia espacial en la organización de la información visual. Esta teoría no solo ayuda a comprender la lateralización hemisférica en la percepción visual, sino que también proporciona un marco conceptual para explorar la eficiencia relativa de cada hemisferio en diversas tareas visuales.
 
+\section{Codigo}
+
+Las claves (`KeysViewHDF5`) que has proporcionado son atributos o conjuntos de datos que pueden estar presentes en un archivo de resultados de fMRI guardado en formato HDF5 (usado comúnmente para archivos de MATLAB v7.3 y posteriores). A continuación, se explica cada uno de ellos:
+
+1. **R2**: Este valor generalmente representa el coeficiente de determinación (R cuadrado), que mide la proporción de la variabilidad en los datos que puede explicarse por el modelo.
+
+2. **R2run**: Puede ser la R cuadrado específica de una ejecución o escaneo particular.
+
+3. **SNR**: Relación señal-ruido.
+
+4. **SNRafter**: SNR después de algún proceso o manipulación específica.
+
+5. **SNRbefore**: SNR antes de algún proceso o manipulación específica.
+
+6. **hrffitvoxels**: Datos relacionados con la estimación de la función de respuesta hemodinámica (HRF) para ciertos voxels.
+
+7. **inputs**: Datos de entrada utilizados en el análisis.
+
+8. **meanvol**: Volumen medio.
+
+9. **modelmd**: Resultados del análisis de modelo.
+
+10. **models**: Modelos utilizados en el análisis.
+
+11. **modelse**: Errores estándar asociados con el modelo.
+
+12. **noise**: Datos relacionados con el ruido.
+
+13. **noisepool**: Piscina de ruido.
+
+14. **pcR2**: Puede referirse a la R cuadrado después del preprocesamiento.
+
+15. **pcR2final**: R cuadrado final después del preprocesamiento.
+
+16. **pcnum**: Número de componentes principales.
+
+17. **pcregressors**: Regresores obtenidos a partir del análisis de componentes principales.
+
+18. **pcvoxels**: Voxeles relacionados con el análisis de componentes principales.
+
+19. **pcweights**: Pesos asociados con el análisis de componentes principales.
+
+20. **signal**: Datos relacionados con la señal.
+
+Es importante tener en cuenta que la interpretación precisa de estos datos puede depender del contexto específico del análisis fMRI que se haya realizado y del software utilizado para generar estos resultados. Además, algunos de estos atributos pueden estar relacionados con análisis específicos o procesos de preprocesamiento realizados en los datos originales.
 \include{MainMatter/Background}
 \include{MainMatter/Proposal}
 \include{MainMatter/Implementation}
