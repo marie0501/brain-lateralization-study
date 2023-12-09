@@ -3,6 +3,7 @@ import os
 import re
 from scipy.io import loadmat
 import numpy as np
+import scipy.io
 
 def get_betas(directory, filename): 
     
@@ -32,7 +33,12 @@ def get_all_betas(directory, filename_prefix):
             # Save betas
             np.save(f"{directory}\\betas\\betas_{filename}", beta_files)
 
-    
+
+
+
+
+
+
 
 
     

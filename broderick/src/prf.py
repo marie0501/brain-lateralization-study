@@ -40,12 +40,22 @@ def load_all_prf_data(directory,file):
 
     data = []
 
-    for f in os.listdir(directory):
-        
+    for f in os.listdir(directory):                
         if patron.match(f):
-            print(f"{directory}\\{f}")
-            data.append(np.load(f"{directory}\\{f}", allow_pickle=True))
+            temp=np.load(f"{directory}\\{f}", allow_pickle=True)
+            print(f"max left: {np.max(temp[0])}")
+            print(f"max right: {np.max(temp[1])}")
+            data.append(temp)
 
     #np.save(f"{directory}\\all_{file}",data)
     return data
             
+# load_all_prf_data("F:\\ds003812-download\\derivatives\\prf_solutions\\all", "eccen")
+# arr=np.linspace(1.5,25.5,25)
+
+# tuplas = zip(arr, arr[1:])
+    
+   
+# arreglo_de_tuplas = list(tuplas)
+
+# print(len(arreglo_de_tuplas))

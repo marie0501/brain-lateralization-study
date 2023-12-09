@@ -15,7 +15,7 @@ def prf():
     ecc_directory = "F:\\ds003812-download\\derivatives\\prf_solutions\\sub-wlsubj001\\bayesian_posterior"
 
 #get_all_prf_data("F:\\ds003812-download\\derivatives\\prf_solutions","bayesian_posterior","inferred_varea.mgz")
-get_all_prf_data("F:\\ds003812-download\\derivatives\\prf_solutions","atlas","benson14_varea.mgz")
+#get_all_prf_data("F:\\ds003812-download\\derivatives\\prf_solutions","atlas","benson14_varea.mgz")
 
     
 

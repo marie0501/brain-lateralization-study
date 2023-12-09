@@ -22,7 +22,7 @@ for isub=1:nsub
     save([ 'F:\\ds003812-download\\derivatives\\processed\\betas',nam(5:13),'.mat'],'betas');
 end
 %% Summaraize SF beta files
-cleanup
+clear
 names={'F:\\ds003812-download\\derivatives\\processed\\betaswlsubj001.mat'
     'F:\\ds003812-download\\derivatives\\processed\\betaswlsubj006.mat'
     'F:\\ds003812-download\\derivatives\\processed\\betaswlsubj007.mat'
@@ -41,10 +41,10 @@ for isub=1:nsub
     load(names{isub});
     temp=zeros(4,size(betas,1));
     for ifreq=1:4
-       [~,temp(ifreq,:)]=max(betas(:,1+(ifreq-1)*10:(ifreq-1)*10+10),[],2);
+       [temp(ifreq,:),~]=max(betas(:,1+(ifreq-1)*10:(ifreq-1)*10+10),[],2);
     end
     pSF{isub}=temp;
-    clear betas
+    
 end
 save('F:\\ds003812-download\\derivatives\\processed\\allpSF.mat',"pSF")
 %% %  extract retinopoty data
@@ -75,8 +75,6 @@ save('F:\\ds003812-download\\derivatives\\processed\\subjmap2.mat',"subjmap","su
 
 %% 
 clear
-wa=[6, 8, 11, 16, 23, 32, 45, 64, 91, 128];
-wr=[4, 6, 8, 11, 16, 23, 32, 45, 64, 91];
 load('F:\\ds003812-download\\derivatives\\processed\\allpSF.mat')
 load('F:\\ds003812-download\\derivatives\\processed\\subjmap2.mat')
 ecc=[];
@@ -84,51 +82,68 @@ psf =[];
 roi=[];
 side=[];
 subj=[];
-psfcorr=[];
-stype=[];
+freq=[];
+
 for isub=1:12
+     disp(isub)
+     idx1=numel(subjmap{isub,1});
+     idx2=numel(subjmap{isub,2});
     for ifreq=1:4
-        disp(isub)
-        idx1=1:numel(subjmap{isub,1});
-        idx2=1:numel(subjmap{isub,2});
-        psfL=pSF{isub}(ifreq,idx1);
-        psfR=pSF{isub}(ifreq,idx2);
 
-        idxgood=find(subjmap{isub,1});
-        roi=[roi;subjmap{isub,1}(idxgood)];
-        ecc=[ecc;subjecc{isub,1}(idxgood)];
-        psf=[psf;psfL(idxgood)'];
-        if ifreq==1 | ifreq==2
-        psfcorr=[psfcorr;  wa(psfL(idxgood))'./subjecc{isub,1}(idxgood)];
-            ww=sqrt(wa.^2+wr.^2);
-            psfcorr=[psfcorr;  ww(psfL(idxgood))'./subjecc{isub,1}(idxgood)];            
-        end
-        side=[side; zeros(numel(idxgood),1)];
-        subj=[subj; isub*ones(numel(idxgood),1)];
-        stype=[stype; ifreq*ones(numel(idxgood),1)];
+        psfL=pSF{isub}(ifreq,1:idx1);
+        psfR=pSF{isub}(ifreq,idx1+1:end);
 
-        idxgood2=find(subjmap{isub,2});
-        roi=[roi;subjmap{isub,2}(idxgood2)];
-        ecc=[ecc;subjecc{isub,2}(idxgood2)];
-        psf=[psf;psfR(idxgood2)'];
-        psfcorr=[psfcorr; wa(psfR(idxgood2))'./subjecc{isub,2}(idxgood2)];
-        side=[side; ones(numel(idxgood2),1)];
-        subj=[subj; isub*ones(numel(idxgood2),1)];
-        stype=[stype; ifreq*ones(numel(idxgood2),1)];
+        % Left
+        psf = [psf; psfL'];
+        roi = [roi; subjmap{isub,1}];
+        ecc = [ecc; subjecc{isub,1}];
+        freq = [freq; ones(idx1,1)*ifreq];
+        side = [side; zeros(idx1,1)];
+        subj = [subj; ones(idx1,1)*isub];
+
+        % Right
+        psf = [psf; psfR'];
+        roi = [roi; subjmap{isub,2}];
+        ecc = [ecc; subjecc{isub,2}];
+        freq = [freq; ones(idx2,1)*ifreq];
+        side = [side; ones(idx2,1)];
+        subj = [subj; ones(idx2,1)*isub];
+
+        % idxgood=find(subjmap{isub,1});
+        % roi=[roi;subjmap{isub,1}(idxgood)];
+        % ecc=[ecc;subjecc{isub,1}(idxgood)];
+        % psf=[psf;psfL(idxgood)'];
+        % if ifreq==1 | ifreq==2
+        % psfcorr=[psfcorr;  wa(psfL(idxgood))'./subjecc{isub,1}(idxgood)];
+        %     ww=sqrt(wa.^2+wr.^2);
+        %     psfcorr=[psfcorr;  ww(psfL(idxgood))'./subjecc{isub,1}(idxgood)];            
+        % end
+        % side=[side; zeros(numel(idxgood),1)];
+        % subj=[subj; isub*ones(numel(idxgood),1)];
+        % stype=[stype; ifreq*ones(numel(idxgood),1)];
+        % 
+        % idxgood2=find(subjmap{isub,2});
+        % roi=[roi;subjmap{isub,2}(idxgood2)];
+        % ecc=[ecc;subjecc{isub,2}(idxgood2)];
+        % psf=[psf;psfR(idxgood2)'];
+        % psfcorr=[psfcorr; wa(psfR(idxgood2))'./subjecc{isub,2}(idxgood2)];
+        % side=[side; ones(numel(idxgood2),1)];
+        % subj=[subj; isub*ones(numel(idxgood2),1)];
+        % stype=[stype; ifreq*ones(numel(idxgood2),1)];
     end
 end
-tab=table(double(ecc),roi,psf,side,subj,double(psfcorr),stype,'VariableNames',{'ecc','roi','psf','side','subj','psfcorr','stype'});
+tab=table(double(ecc),roi,psf,side,subj,freq,'VariableNames',{'ecc','roi','psf','side','subj','freq'});
 save('F:\\ds003812-download\\derivatives\\processed\\tab2.mat','tab');
 %% 
 clear
 load('F:\\ds003812-download\\derivatives\\processed\\tab.mat','tab');
 
-bad=isnan(tab.psfcorr) | isnan(tab.ecc) | isnan(tab.side) | isinf(tab.psfcorr) | isinf(tab.ecc) | isinf(tab.side);
+bad=isnan(tab.psf) | isnan(tab.ecc) | isnan(tab.side) | isinf(tab.psf) | isinf(tab.ecc) | isinf(tab.side);
 tab(bad,:)=[];
 clc
 for iroi=1:12
     tab1=tab(tab.roi==iroi,:);
-     temp= fitlme(tab1,'psfcorr~ side*ecc + (side*ecc | subj)');
+     temp= fitlme(tab1,'psf~ side*ecc + (1 | subj)');
      mdlanova{iroi}=anova(temp);
      mdlfix{iroi}=fixedEffects(temp);
      display(iroi)

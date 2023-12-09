@@ -1,12 +1,13 @@
 import os
 import numpy as np
+import scipy.io
 
 
 def preferred_spatial_frequency(directory):
 
     psf_index = []
-       
-    for file in os.listdir(directory):
+           
+    for file in os.listdir(directory):        
         beta = np.load(f"{directory}\\{file}")
         index_sub = np.empty((4,beta.shape[1]))
         print(file)
@@ -23,8 +24,18 @@ def preferred_spatial_frequency(directory):
 
     
 
-#directory = "F:\\ds003812-download\\derivatives\\processed\\betas"
-#preferred_spatial_frequency(directory)
+# directory = "F:\\ds003812-download\\derivatives\\processed\\betas"
+# psf=preferred_spatial_frequency(directory)
     
 
+# # Datos de ejemplo
 
+# data = {
+#     'psf': psf,    
+# }
+
+# # Ruta del archivo .mat
+# mat_file_path = 'all_psf.mat'
+
+# # Guardar en el archivo .mat
+# scipy.io.savemat(mat_file_path, data)
