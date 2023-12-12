@@ -64,7 +64,7 @@ def generate_dataframe(subjects, eccentricity_ranges):
     
 
     # Definir las clases de frecuencia (suponiendo que tienes 4 clases de 10 frecuencias cada una)
-    frequency_classes = [list(range(i, i+10)) for i in range(0, 40, 10)]
+    frequency_classes = [list(range(i, i+10)) for i in range(0, 20, 10)]
 
     # Iterar sobre los sujetos
     for subject in subjects:
@@ -81,24 +81,27 @@ def generate_dataframe(subjects, eccentricity_ranges):
 
                     # Calcular el máximo del promedio de betas por clase de frecuencia
                     if filtered_voxels:
-                        max_average_betas = {}
+                        max_average_betas = []
                         for i,freq_class in enumerate(frequency_classes):
+                            print(f'dentro primer for if: {freq_class}')
                             class_betas = []
                             for freq in freq_class:
+                                print(f"dentro segundo for if: {freq}")
                                 temp = [voxel.beta_values[freq] for voxel in filtered_voxels]
                                 class_betas.append(np.median(temp))
-                            max_index =  np.argmax(class_betas)
-                            max_average_betas = spatial_frequency(i,np.mean([eccentricity_range[0],eccentricity_range[1]]),max_index)
+                            max_average_betas.append(class_betas)
+                        max_index =  np.argmax(np.mean(max_average_betas))
+                        max_freq = spatial_frequency(i,np.mean([eccentricity_range[0],eccentricity_range[1]]),max_index)
 
 
-                            # Almacenar los resultados en listas
-                            subject_list.append(subject.subject_id + 1) 
-                            roi_list.append(roi_name + 1)
-                            eccentricity_range_list.append(eccentricity_range)
-                            eccentricity_mean_list.append(np.mean(eccentricity_range))
-                            frequency_class_list.append(i+1)
-                            max_average_beta_list.append(max_average_betas)
-                            side_list.append(s)
+                        # Almacenar los resultados en listas
+                        subject_list.append(subject.subject_id + 1) 
+                        roi_list.append(roi_name + 1)
+                        eccentricity_range_list.append(eccentricity_range)
+                        eccentricity_mean_list.append(np.mean(eccentricity_range))
+                        frequency_class_list.append(1)
+                        max_average_beta_list.append(max_freq)
+                        side_list.append(s)
 
     # Crear un DataFrame a partir de las listas
     df = pd.DataFrame({
@@ -111,7 +114,7 @@ def generate_dataframe(subjects, eccentricity_ranges):
         'side': side_list
     })
     df.dropna()
-    df.to_csv("table_raw_median.csv", index=False)
+    df.to_csv("table_raw_median_freq_1_2_together.csv", index=False)
 
     return df
 
@@ -130,8 +133,6 @@ eccentricity_ranges=list(zip(arr, arr[1:]))
 
 # DataFrame resultante
 result_df = generate_dataframe(subjects, eccentricity_ranges)
-
-
 
 
 
