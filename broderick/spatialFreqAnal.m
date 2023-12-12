@@ -136,16 +136,19 @@ tab=table(double(ecc),roi,psf,side,subj,freq,'VariableNames',{'ecc','roi','psf',
 save('F:\\ds003812-download\\derivatives\\processed\\tab2.mat','tab');
 %% 
 clear
-load('F:\\ds003812-download\\derivatives\\processed\\tab.mat','tab');
-
+tab = readtable("C:\\Users\\Marie\\Documents\\thesis\\broderick\\table1.csv");
+rois ={'V1','V2','V3','hV4','VO1','VO2','V3a','V3b','LO1','LO2','TO1','TO2'};
 bad=isnan(tab.psf) | isnan(tab.ecc) | isnan(tab.side) | isinf(tab.psf) | isinf(tab.ecc) | isinf(tab.side);
 tab(bad,:)=[];
 clc
+
+
 for iroi=1:12
     tab1=tab(tab.roi==iroi,:);
-     temp= fitlme(tab1,'psf~ side*ecc + (1 | subj)');
+     temp= fitlme(tab1,'psf~ side*ecc + (1 | subject)');
      mdlanova{iroi}=anova(temp);
      mdlfix{iroi}=fixedEffects(temp);
-     display(iroi)
-     display(mdlanova)
+     display(rois{iroi})
+     display(mdlanova{iroi})
+    
 end

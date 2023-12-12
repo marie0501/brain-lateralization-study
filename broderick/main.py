@@ -7,7 +7,7 @@ def betas():
     directory = 'F:\\ds003812-download\\derivatives\\processed'
     filename = "sub-wlsub"
     
-    get_all_betas(directory, filename)
+    get_all_betas(directory=directory,filename_prefix=filename, smooth=True)
 
 def prf():
 
@@ -16,6 +16,4 @@ def prf():
 
 #get_all_prf_data("F:\\ds003812-download\\derivatives\\prf_solutions","bayesian_posterior","inferred_varea.mgz")
 #get_all_prf_data("F:\\ds003812-download\\derivatives\\prf_solutions","atlas","benson14_varea.mgz")
-
-    
 

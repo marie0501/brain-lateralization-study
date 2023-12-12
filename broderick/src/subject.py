@@ -25,7 +25,7 @@ class Subject:
             filtered_voxels = [voxel for voxel in self.voxels if
                                (roi_filter is None or voxel.roi == roi_filter) and
                                (side is None or voxel.side == side_filter) and
-                               (eccentricity_filter is None or eccentricity_filter[0] <= voxel.eccentricity <= eccentricity_filter[1]) and
+                               (eccentricity_filter is None or eccentricity_filter[0] <= voxel.eccentricity < eccentricity_filter[1]) and
                                (beta_frequency_filter is None or any(freq in list(voxel.beta_values) for freq in beta_frequency_filter))]
 
             if filtered_voxels:
@@ -36,7 +36,7 @@ class Subject:
 
     def calculate_average_betas(subject, roi, eccentricity_range):
         # Filter voxels based on ROI and eccentricity range
-        filtered_voxels = [voxel for voxel in subject.voxels if voxel.roi == roi and eccentricity_range[0] <= voxel.eccentricity <= eccentricity_range[1]]
+        filtered_voxels = [voxel for voxel in subject.voxels if voxel.roi == roi and eccentricity_range[0] <= voxel.eccentricity < eccentricity_range[1]]
     
         # Group filtered voxels by frequencies
         sorted_voxels = sorted(filtered_voxels, key=lambda voxel: list(voxel.beta_values.keys()))
