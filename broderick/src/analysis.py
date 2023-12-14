@@ -119,7 +119,7 @@ def generate_dataframe(subjects, eccentricity_ranges):
     return df
 
 
-psf= load_all_prf_data("F:\\ds003812-download\\derivatives\\processed\\betas","betas")
+psf= load_all_prf_data("F:\\ds003812-download\\derivatives\\processed\\betas","smoothed_betas")
 ecc=load_all_prf_data("F:\\ds003812-download\\derivatives\\prf_solutions\\all", "eccen")
 roi=load_all_prf_data("F:\\ds003812-download\\derivatives\\prf_solutions\\all", "benson14_varea")
 
