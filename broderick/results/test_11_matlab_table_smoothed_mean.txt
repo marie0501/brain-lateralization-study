@@ -1,0 +1,240 @@
+V1
+         Mixed Linear Model Regression Results
+=======================================================
+Model:            MixedLM Dependent Variable: freq     
+No. Observations: 336     Method:             REML     
+No. Groups:       12      Scale:              1.4114   
+Min. group size:  28      Log-Likelihood:     -558.7779
+Max. group size:  28      Converged:          Yes      
+Mean group size:  28.0                                 
+-------------------------------------------------------
+            Coef.  Std.Err.    z    P>|z| [0.025 0.975]
+-------------------------------------------------------
+Intercept    4.395    0.366  12.024 0.000  3.679  5.112
+side        -1.556    0.274  -5.684 0.000 -2.093 -1.020
+bands       -0.246    0.023 -10.833 0.000 -0.291 -0.202
+side:bands   0.136    0.032   4.219 0.000  0.073  0.199
+Group Var    1.154    0.439                            
+=======================================================
+
+
+V2
+         Mixed Linear Model Regression Results
+=======================================================
+Model:            MixedLM Dependent Variable: freq     
+No. Observations: 336     Method:             REML     
+No. Groups:       12      Scale:              0.1824   
+Min. group size:  28      Log-Likelihood:     -214.0540
+Max. group size:  28      Converged:          Yes      
+Mean group size:  28.0                                 
+-------------------------------------------------------
+            Coef.  Std.Err.    z    P>|z| [0.025 0.975]
+-------------------------------------------------------
+Intercept    3.206    0.097  33.006 0.000  3.015  3.396
+side        -0.080    0.098  -0.810 0.418 -0.273  0.113
+bands       -0.138    0.008 -16.865 0.000 -0.154 -0.122
+side:bands   0.002    0.012   0.134 0.893 -0.021  0.024
+Group Var    0.055    0.063                            
+=======================================================
+
+
+V3
+         Mixed Linear Model Regression Results
+=======================================================
+Model:            MixedLM Dependent Variable: freq     
+No. Observations: 336     Method:             REML     
+No. Groups:       12      Scale:              0.1966   
+Min. group size:  28      Log-Likelihood:     -230.3789
+Max. group size:  28      Converged:          Yes      
+Mean group size:  28.0                                 
+-------------------------------------------------------
+            Coef.  Std.Err.    z    P>|z| [0.025 0.975]
+-------------------------------------------------------
+Intercept    2.837    0.126  22.446 0.000  2.589  3.085
+side        -0.209    0.102  -2.045 0.041 -0.409 -0.009
+bands       -0.164    0.008 -19.302 0.000 -0.180 -0.147
+side:bands   0.022    0.012   1.811 0.070 -0.002  0.045
+Group Var    0.129    0.133                            
+=======================================================
+
+
+hV4
+         Mixed Linear Model Regression Results
+=======================================================
+Model:            MixedLM Dependent Variable: freq     
+No. Observations: 336     Method:             REML     
+No. Groups:       12      Scale:              0.6611   
+Min. group size:  28      Log-Likelihood:     -426.6411
+Max. group size:  28      Converged:          Yes      
+Mean group size:  28.0                                 
+-------------------------------------------------------
+            Coef.  Std.Err.    z    P>|z| [0.025 0.975]
+-------------------------------------------------------
+Intercept    3.165    0.175  18.055 0.000  2.821  3.508
+side         0.124    0.187   0.661 0.508 -0.243  0.491
+bands       -0.201    0.016 -12.908 0.000 -0.231 -0.170
+side:bands   0.004    0.022   0.168 0.866 -0.039  0.047
+Group Var    0.158    0.097                            
+=======================================================
+
+
+VO1
+         Mixed Linear Model Regression Results
+=======================================================
+Model:            MixedLM Dependent Variable: freq     
+No. Observations: 336     Method:             REML     
+No. Groups:       12      Scale:              0.8832   
+Min. group size:  28      Log-Likelihood:     -479.3105
+Max. group size:  28      Converged:          Yes      
+Mean group size:  28.0                                 
+-------------------------------------------------------
+             Coef.  Std.Err.   z    P>|z| [0.025 0.975]
+-------------------------------------------------------
+Intercept     3.167    0.260 12.203 0.000  2.658  3.676
+side         -0.717    0.217 -3.308 0.001 -1.141 -0.292
+bands        -0.151    0.018 -8.395 0.000 -0.186 -0.116
+side:bands    0.081    0.025  3.196 0.001  0.031  0.131
+Group Var     0.527    0.258                           
+=======================================================
+
+
+VO2
+         Mixed Linear Model Regression Results
+=======================================================
+Model:            MixedLM Dependent Variable: freq     
+No. Observations: 336     Method:             REML     
+No. Groups:       12      Scale:              1.2037   
+Min. group size:  28      Log-Likelihood:     -522.5016
+Max. group size:  28      Converged:          Yes      
+Mean group size:  28.0                                 
+-------------------------------------------------------
+             Coef.  Std.Err.   z    P>|z| [0.025 0.975]
+-------------------------------------------------------
+Intercept     2.585    0.207 12.517 0.000  2.180  2.990
+side         -0.385    0.253 -1.521 0.128 -0.880  0.111
+bands        -0.117    0.021 -5.586 0.000 -0.158 -0.076
+side:bands    0.016    0.030  0.552 0.581 -0.042  0.075
+Group Var     0.128    0.068                           
+=======================================================
+
+
+V3a
+         Mixed Linear Model Regression Results
+=======================================================
+Model:            MixedLM Dependent Variable: freq     
+No. Observations: 336     Method:             REML     
+No. Groups:       12      Scale:              1.2753   
+Min. group size:  28      Log-Likelihood:     -534.8307
+Max. group size:  28      Converged:          Yes      
+Mean group size:  28.0                                 
+-------------------------------------------------------
+             Coef.  Std.Err.   z    P>|z| [0.025 0.975]
+-------------------------------------------------------
+Intercept     2.386    0.234 10.181 0.000  1.927  2.846
+side         -0.105    0.260 -0.403 0.687 -0.615  0.405
+bands        -0.117    0.022 -5.430 0.000 -0.160 -0.075
+side:bands    0.023    0.031  0.767 0.443 -0.036  0.083
+Group Var     0.253    0.115                           
+=======================================================
+
+
+V3b
+         Mixed Linear Model Regression Results
+=======================================================
+Model:            MixedLM Dependent Variable: freq     
+No. Observations: 336     Method:             REML     
+No. Groups:       12      Scale:              1.0159   
+Min. group size:  28      Log-Likelihood:     -497.1201
+Max. group size:  28      Converged:          Yes      
+Mean group size:  28.0                                 
+-------------------------------------------------------
+             Coef.  Std.Err.   z    P>|z| [0.025 0.975]
+-------------------------------------------------------
+Intercept     2.634    0.210 12.569 0.000  2.223  3.045
+side         -0.198    0.232 -0.850 0.395 -0.653  0.258
+bands        -0.089    0.019 -4.625 0.000 -0.127 -0.051
+side:bands   -0.010    0.027 -0.367 0.714 -0.063  0.043
+Group Var     0.203    0.103                           
+=======================================================
+
+
+LO1
+         Mixed Linear Model Regression Results
+=======================================================
+Model:            MixedLM Dependent Variable: freq     
+No. Observations: 336     Method:             REML     
+No. Groups:       12      Scale:              0.3449   
+Min. group size:  28      Log-Likelihood:     -322.2160
+Max. group size:  28      Converged:          Yes      
+Mean group size:  28.0                                 
+-------------------------------------------------------
+             Coef.  Std.Err.   z    P>|z| [0.025 0.975]
+-------------------------------------------------------
+Intercept     2.422    0.152 15.898 0.000  2.123  2.721
+side         -0.169    0.135 -1.251 0.211 -0.435  0.096
+bands        -0.104    0.011 -9.227 0.000 -0.126 -0.082
+side:bands   -0.017    0.016 -1.054 0.292 -0.048  0.014
+Group Var     0.169    0.134                           
+=======================================================
+
+
+LO2
+         Mixed Linear Model Regression Results
+=======================================================
+Model:            MixedLM Dependent Variable: freq     
+No. Observations: 336     Method:             REML     
+No. Groups:       12      Scale:              0.8420   
+Min. group size:  28      Log-Likelihood:     -465.9947
+Max. group size:  28      Converged:          Yes      
+Mean group size:  28.0                                 
+-------------------------------------------------------
+             Coef.  Std.Err.   z    P>|z| [0.025 0.975]
+-------------------------------------------------------
+Intercept     2.374    0.191 12.426 0.000  1.999  2.748
+side         -0.310    0.211 -1.466 0.143 -0.725  0.104
+bands        -0.123    0.018 -7.026 0.000 -0.158 -0.089
+side:bands    0.017    0.025  0.688 0.491 -0.032  0.066
+Group Var     0.170    0.094                           
+=======================================================
+
+
+TO1
+         Mixed Linear Model Regression Results
+=======================================================
+Model:            MixedLM Dependent Variable: freq     
+No. Observations: 336     Method:             REML     
+No. Groups:       12      Scale:              1.1523   
+Min. group size:  28      Log-Likelihood:     -521.6050
+Max. group size:  28      Converged:          Yes      
+Mean group size:  28.0                                 
+-------------------------------------------------------
+             Coef.  Std.Err.   z    P>|z| [0.025 0.975]
+-------------------------------------------------------
+Intercept     2.586    0.265  9.742 0.000  2.066  3.106
+side          0.138    0.247  0.556 0.578 -0.347  0.622
+bands        -0.132    0.021 -6.434 0.000 -0.172 -0.092
+side:bands   -0.016    0.029 -0.536 0.592 -0.073  0.041
+Group Var     0.478    0.210                           
+=======================================================
+
+
+TO2
+         Mixed Linear Model Regression Results
+=======================================================
+Model:            MixedLM Dependent Variable: freq     
+No. Observations: 336     Method:             REML     
+No. Groups:       12      Scale:              1.9166   
+Min. group size:  28      Log-Likelihood:     -603.5253
+Max. group size:  28      Converged:          Yes      
+Mean group size:  28.0                                 
+-------------------------------------------------------
+             Coef.  Std.Err.   z    P>|z| [0.025 0.975]
+-------------------------------------------------------
+Intercept     2.971    0.301  9.869 0.000  2.381  3.561
+side         -0.088    0.319 -0.275 0.783 -0.713  0.538
+bands        -0.148    0.026 -5.577 0.000 -0.200 -0.096
+side:bands    0.028    0.037  0.755 0.450 -0.045  0.102
+Group Var     0.477    0.171                           
+=======================================================
+
+

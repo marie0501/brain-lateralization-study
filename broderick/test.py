@@ -19,10 +19,10 @@ for i in range(len(bincenter)):
 
 rois_labels = ['V1','V2','V3','hV4','VO1','VO2','V3a','V3b','LO1','LO2','TO1','TO2']
 
-betas= load_all_prf_data("F:\\ds003812-download\\derivatives\\processed\\betas","smooothed_betas")
-ecc=load_all_prf_data("F:\\ds003812-download\\derivatives\\prf_solutions\\all", "eccen")
-roi=load_all_prf_data("F:\\ds003812-download\\derivatives\\prf_solutions\\all", "benson14_varea")
-
+betas= load_all_prf_data("F:\\ds003812-download\\derivatives\\processed\\betas","smoothed_betas")
+ecc=load_all_prf_data("F:\\ds003812-download\\derivatives\\prf_solutions\\all", "full-eccen")
+roi=load_all_prf_data("F:\\ds003812-download\\derivatives\\prf_solutions\\all", "inferred_varea")
+print(len(betas))
 nsub = 12
 
 subj = []
@@ -107,7 +107,7 @@ for iroi in range(len(rois_labels)):
 data = {'subj': subj, 'bands': bands, 'freq': freq, 'side': side, 'rois':rois}
 tab = pd.DataFrame(data)
 
-tab.to_csv("matlab_table_smoothed.csv", index=False)
+tab.to_csv("matlab_table_smoothed_full_eccen_bayesian_area.csv", index=False)
 
 
 

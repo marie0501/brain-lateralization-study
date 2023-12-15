@@ -1,0 +1,240 @@
+V1
+          Mixed Linear Model Regression Results
+==========================================================
+Model:            MixedLM Dependent Variable: size        
+No. Observations: 119961  Method:             REML        
+No. Groups:       12      Scale:              1.5915      
+Min. group size:  7741    Log-Likelihood:     -198143.7136
+Max. group size:  13548   Converged:          Yes         
+Mean group size:  9996.8                                  
+-----------------------------------------------------------
+           Coef.   Std.Err.     z     P>|z|  [0.025  0.975]
+-----------------------------------------------------------
+Intercept   0.503     0.092    5.463  0.000   0.323   0.684
+side       -0.149     0.014  -10.866  0.000  -0.176  -0.122
+ecc         0.097     0.001   93.728  0.000   0.095   0.099
+side:ecc    0.009     0.001    5.995  0.000   0.006   0.011
+Group Var   0.101     0.035                                
+==========================================================
+
+
+V2
+          Mixed Linear Model Regression Results
+==========================================================
+Model:            MixedLM Dependent Variable: size        
+No. Observations: 107763  Method:             REML        
+No. Groups:       12      Scale:              2.3605      
+Min. group size:  7411    Log-Likelihood:     -199242.2053
+Max. group size:  11387   Converged:          Yes         
+Mean group size:  8980.2                                  
+-----------------------------------------------------------
+           Coef.   Std.Err.     z     P>|z|  [0.025  0.975]
+-----------------------------------------------------------
+Intercept   0.598     0.137    4.368  0.000   0.329   0.866
+side       -0.221     0.016  -13.722  0.000  -0.253  -0.190
+ecc         0.144     0.001  129.449  0.000   0.142   0.147
+side:ecc    0.009     0.002    5.995  0.000   0.006   0.012
+Group Var   0.223     0.063                                
+==========================================================
+
+
+V3
+          Mixed Linear Model Regression Results
+==========================================================
+Model:            MixedLM Dependent Variable: size        
+No. Observations: 77988   Method:             REML        
+No. Groups:       12      Scale:              3.5673      
+Min. group size:  5323    Log-Likelihood:     -160305.3540
+Max. group size:  8295    Converged:          Yes         
+Mean group size:  6499.0                                  
+-----------------------------------------------------------
+           Coef.   Std.Err.     z     P>|z|  [0.025  0.975]
+-----------------------------------------------------------
+Intercept   0.849     0.164    5.178  0.000   0.528   1.170
+side       -0.067     0.021   -3.258  0.001  -0.108  -0.027
+ecc         0.192     0.001  135.640  0.000   0.189   0.194
+side:ecc    0.028     0.002   14.773  0.000   0.024   0.031
+Group Var   0.320     0.072                                
+==========================================================
+
+
+hV4
+          Mixed Linear Model Regression Results
+=========================================================
+Model:            MixedLM Dependent Variable: size       
+No. Observations: 35577   Method:             REML       
+No. Groups:       12      Scale:              3.3077     
+Min. group size:  2363    Log-Likelihood:     -71812.6838
+Max. group size:  3597    Converged:          Yes        
+Mean group size:  2964.8                                 
+---------------------------------------------------------
+              Coef.  Std.Err.    z    P>|z| [0.025 0.975]
+---------------------------------------------------------
+Intercept      2.569    0.254  10.098 0.000  2.071  3.068
+side          -0.361    0.028 -12.727 0.000 -0.417 -0.306
+ecc            0.286    0.002 157.834 0.000  0.282  0.289
+side:ecc       0.047    0.003  18.859 0.000  0.042  0.052
+Group Var      0.772    0.182                            
+=========================================================
+
+
+VO1
+          Mixed Linear Model Regression Results
+=========================================================
+Model:            MixedLM Dependent Variable: size       
+No. Observations: 23612   Method:             REML       
+No. Groups:       12      Scale:              4.5773     
+Min. group size:  1593    Log-Likelihood:     -51510.0704
+Max. group size:  2632    Converged:          Yes        
+Mean group size:  1967.7                                 
+----------------------------------------------------------
+            Coef.  Std.Err.    z     P>|z|  [0.025  0.975]
+----------------------------------------------------------
+Intercept   3.812     0.315  12.115  0.000   3.196   4.429
+side        0.037     0.044   0.848  0.397  -0.049   0.123
+ecc         0.258     0.003  90.132  0.000   0.253   0.264
+side:ecc    0.057     0.004  13.766  0.000   0.049   0.065
+Group Var   1.175     0.237                               
+=========================================================
+
+
+VO2
+          Mixed Linear Model Regression Results
+=========================================================
+Model:            MixedLM Dependent Variable: size       
+No. Observations: 14899   Method:             REML       
+No. Groups:       12      Scale:              8.2076     
+Min. group size:  982     Log-Likelihood:     -36866.8737
+Max. group size:  1462    Converged:          Yes        
+Mean group size:  1241.6                                 
+----------------------------------------------------------
+            Coef.  Std.Err.    z     P>|z|  [0.025  0.975]
+----------------------------------------------------------
+Intercept   1.846     0.468   3.947  0.000   0.929   2.763
+side        0.914     0.081  11.255  0.000   0.755   1.073
+ecc         0.280     0.005  51.327  0.000   0.269   0.290
+side:ecc    0.031     0.007   4.313  0.000   0.017   0.045
+Group Var   2.580     0.385                               
+=========================================================
+
+
+V3a
+          Mixed Linear Model Regression Results
+=========================================================
+Model:            MixedLM Dependent Variable: size       
+No. Observations: 23264   Method:             REML       
+No. Groups:       12      Scale:              4.7003     
+Min. group size:  1465    Log-Likelihood:     -51057.0965
+Max. group size:  2479    Converged:          Yes        
+Mean group size:  1938.7                                 
+----------------------------------------------------------
+           Coef.  Std.Err.     z     P>|z|  [0.025  0.975]
+----------------------------------------------------------
+Intercept  1.322     0.235    5.624  0.000   0.861   1.783
+side       0.353     0.040    8.752  0.000   0.274   0.432
+ecc        0.331     0.002  148.723  0.000   0.327   0.336
+side:ecc   0.017     0.003    4.731  0.000   0.010   0.023
+Group Var  0.653     0.112                                
+=========================================================
+
+
+V3b
+          Mixed Linear Model Regression Results
+=========================================================
+Model:            MixedLM Dependent Variable: size       
+No. Observations: 21834   Method:             REML       
+No. Groups:       12      Scale:              7.5154     
+Min. group size:  1443    Log-Likelihood:     -53040.9638
+Max. group size:  2463    Converged:          Yes        
+Mean group size:  1819.5                                 
+---------------------------------------------------------
+              Coef.  Std.Err.    z    P>|z| [0.025 0.975]
+---------------------------------------------------------
+Intercept      2.254    0.235   9.592 0.000  1.793  2.714
+side           0.743    0.066  11.265 0.000  0.614  0.873
+ecc            0.345    0.003 103.062 0.000  0.339  0.352
+side:ecc      -0.019    0.005  -4.185 0.000 -0.028 -0.010
+Group Var      0.637    0.100                            
+=========================================================
+
+
+LO1
+          Mixed Linear Model Regression Results
+=========================================================
+Model:            MixedLM Dependent Variable: size       
+No. Observations: 24106   Method:             REML       
+No. Groups:       12      Scale:              11.8741    
+Min. group size:  1552    Log-Likelihood:     -64074.2069
+Max. group size:  2675    Converged:          Yes        
+Mean group size:  2008.8                                 
+---------------------------------------------------------
+              Coef.  Std.Err.    z    P>|z| [0.025 0.975]
+---------------------------------------------------------
+Intercept      2.840    0.496   5.726 0.000  1.868  3.812
+side           0.213    0.079   2.714 0.007  0.059  0.368
+ecc            0.317    0.005  63.909 0.000  0.308  0.327
+side:ecc      -0.094    0.007 -13.567 0.000 -0.108 -0.081
+Group Var      2.908    0.362                            
+=========================================================
+
+
+LO2
+          Mixed Linear Model Regression Results
+=========================================================
+Model:            MixedLM Dependent Variable: size       
+No. Observations: 15884   Method:             REML       
+No. Groups:       12      Scale:              11.3512    
+Min. group size:  1066    Log-Likelihood:     -41878.7236
+Max. group size:  1744    Converged:          Yes        
+Mean group size:  1323.7                                 
+----------------------------------------------------------
+           Coef.   Std.Err.    z     P>|z|  [0.025  0.975]
+----------------------------------------------------------
+Intercept   0.709     0.695   1.021  0.307  -0.652   2.071
+side        1.020     0.109   9.332  0.000   0.806   1.234
+ecc         0.297     0.006  49.097  0.000   0.285   0.309
+side:ecc   -0.053     0.009  -6.045  0.000  -0.071  -0.036
+Group Var   5.718     0.721                               
+=========================================================
+
+
+TO1
+          Mixed Linear Model Regression Results
+=========================================================
+Model:            MixedLM Dependent Variable: size       
+No. Observations: 14444   Method:             REML       
+No. Groups:       12      Scale:              8.8649     
+Min. group size:  901     Log-Likelihood:     -36297.7505
+Max. group size:  1564    Converged:          Yes        
+Mean group size:  1203.7                                 
+---------------------------------------------------------
+              Coef.  Std.Err.    z    P>|z| [0.025 0.975]
+---------------------------------------------------------
+Intercept      1.795    0.469   3.830 0.000  0.876  2.714
+side          -1.154    0.095 -12.100 0.000 -1.341 -0.967
+ecc            0.250    0.006  42.398 0.000  0.239  0.262
+side:ecc       0.022    0.008   2.695 0.007  0.006  0.037
+Group Var      2.582    0.371                            
+=========================================================
+
+
+TO2
+          Mixed Linear Model Regression Results
+==========================================================
+Model:            MixedLM Dependent Variable: size        
+No. Observations: 52789   Method:             REML        
+No. Groups:       12      Scale:              6.3332      
+Min. group size:  3646    Log-Likelihood:     -123673.7558
+Max. group size:  5578    Converged:          Yes         
+Mean group size:  4399.1                                  
+-----------------------------------------------------------
+           Coef.   Std.Err.     z     P>|z|  [0.025  0.975]
+-----------------------------------------------------------
+Intercept   2.962     0.277   10.705  0.000   2.420   3.504
+side        0.032     0.038    0.837  0.403  -0.043   0.106
+ecc         0.235     0.002  116.726  0.000   0.231   0.239
+side:ecc   -0.012     0.003   -3.991  0.000  -0.018  -0.006
+Group Var   0.909     0.157                                
+==========================================================
+
+

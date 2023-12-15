@@ -19,13 +19,13 @@ def model(directory):
        # Obtener el resumen del modelo
        summary_text = resultados_modelo.summary().as_text()
        # Especificar la ruta del archivo de texto
-       ruta_archivo = 'C:\\Users\\Marie\\Documents\\thesis\\broderick\\results\\test_9_matlab_table_mean.txt'
+       ruta_archivo = 'C:\\Users\\Marie\\Documents\\thesis\\broderick\\results\\test_18_matlab_table_smoothed_full_eccen_bayesian_area.txt'
        # Guardar el resumen en el archivo de texto
        with open(ruta_archivo, 'a') as file:
             file.write(f"{rois[roi-1]}\n")            
             file.write(summary_text)
             file.write('\n\n')
 
-directory ="C:\\Users\\Marie\\Documents\\thesis\\broderick\\matlab_table_mean.csv"
+directory ="C:\\Users\\Marie\\Documents\\thesis\\broderick\\matlab_table_smoothed_full_eccen_bayesian_area.csv"
 
 model(directory)

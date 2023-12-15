@@ -1,32 +1,49 @@
 import matplotlib.pyplot as plt
 import pandas as pd
-from analysis import analysis
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn import metrics
+
+df_1 = pd.read_csv("C:\\Users\\Marie\\Documents\\thesis\\broderick\\table_size_prf.csv")
+df_2 = pd.read_csv("C:\\Users\\Marie\\Documents\\thesis\\broderick\\table_size_prf_benson14.csv")
+df_3 = pd.read_csv("C:\\Users\\Marie\\Documents\\thesis\\broderick\\table_size_prf_data_full.csv")
+df_4 = pd.read_csv("C:\\Users\\Marie\\Documents\\thesis\\broderick\\table_size_prf_data_full_inferred_varea.csv")
+
+dfs = [df_1,df_2,df_3,df_4]
+
+rois = ['V1','V2','V3','hV4','VO1','VO2','V3a','V3b','LO1','LO2','TO1','TO2']
+
+sub = 2
+
+colors = ['blue','red','green','yellow']
+
+for index_roi in range(1,len(rois)+1):
+    for index_df in range(len(dfs)):
+
+        current_df_0 = dfs[index_df][(dfs[index_df]['subj']==sub) & (dfs[index_df]['roi']==index_roi) & (dfs[index_df]['side']==0)]
+        current_df_1 = dfs[index_df][(dfs[index_df]['subj']==sub) & (dfs[index_df]['roi']==index_roi) & (dfs[index_df]['side']==1)]
+
+        # Dividir el conjunto de datos en conjuntos de entrenamiento y prueba
+        X_train_0, X_test_0, y_train_0, y_test_0 = train_test_split(current_df_0[['size']], current_df_0['ecc'], test_size=0.2, random_state=42)
+        X_train_1, X_test_1, y_train_1, y_test_1 = train_test_split(current_df_1[['size']], current_df_1['ecc'], test_size=0.2, random_state=42)
+
+        # Inicializar el modelo de regresión lineal
+        model_0 = LinearRegression()
+        model_1 = LinearRegression()
+
+        # Entrenar el modelo con el conjunto de entrenamiento
+        model_0.fit(X_train_0, y_train_0)
+        model_1.fit(X_train_1, y_train_1)
+
+        # Realizar predicciones en el conjunto de prueba
+        y_pred_0 = model_0.predict(X_test_0)
+        y_pred_1 = model_1.predict(X_test_1)
 
 
-df = analysis()
+        plt.plot(X_test_0, y_pred_0, color=colors[index_df], linewidth=3, label=f'left {index_df + 1}')
+        plt.plot(X_test_1, y_pred_1, color=colors[index_df], linewidth=3, linestyle='--', label=f"rigth {index_df + 1}")
 
-# Filtrar los datos
-datos_filtrados = df[(df['freq'] == 1)]
-
-# Crear dos DataFrames separados para "side" igual a 0 y 1
-datos_side_0 = datos_filtrados[datos_filtrados['side'] == 0]
-datos_side_1 = datos_filtrados[datos_filtrados['side'] == 1]
-
-
-# Configurar la figura con dos subgráficas
-fig, axs = plt.subplots(1, 2, figsize=(12, 6))
-
-# Graficar la variable "psf" para side = 0
-axs[0].scatter(datos_side_0.index, datos_side_0['psf'])
-axs[0].set_title('Variable "psf" con freq = 1 y side = 0')
-
-# Graficar la diferencia de "psf" para side = 0
-axs[1].scatter(datos_side_1.index, datos_side_1['psf'])
-axs[1].axhline(0, color='red', linestyle='--', linewidth=2)  # Línea horizontal en y=0
-axs[1].set_title('Variable de "psf" con freq = 1 y side = 1')
-
-# Ajustar el diseño para evitar superposiciones
-plt.tight_layout()
-
-# Mostrar el gráfico
-plt.show()
+    plt.xlabel('size')
+    plt.ylabel('ecc')
+    plt.title(f"{rois[index_roi-1]}")
+    plt.show()
