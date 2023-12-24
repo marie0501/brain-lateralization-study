@@ -1,0 +1,240 @@
+V1
+           Mixed Linear Model Regression Results
+===========================================================
+Model:            MixedLM Dependent Variable: betas        
+No. Observations: 831278  Method:             REML         
+No. Groups:       12      Scale:              2.7882       
+Min. group size:  53186   Log-Likelihood:     -1605789.3404
+Max. group size:  94528   Converged:          Yes          
+Mean group size:  69273.2                                  
+------------------------------------------------------------
+            Coef.   Std.Err.     z     P>|z|  [0.025  0.975]
+------------------------------------------------------------
+Intercept    1.318     0.066   19.946  0.000   1.188   1.447
+side        -0.141     0.007  -20.834  0.000  -0.154  -0.128
+ecc         -0.040     0.001  -79.195  0.000  -0.041  -0.039
+side:ecc     0.019     0.001   26.650  0.000   0.017   0.020
+Group Var    0.052     0.015                                
+===========================================================
+
+
+V2
+           Mixed Linear Model Regression Results
+===========================================================
+Model:            MixedLM Dependent Variable: betas        
+No. Observations: 670649  Method:             REML         
+No. Groups:       12      Scale:              2.6299       
+Min. group size:  45192   Log-Likelihood:     -1275909.5493
+Max. group size:  72744   Converged:          Yes          
+Mean group size:  55887.4                                  
+------------------------------------------------------------
+            Coef.   Std.Err.     z     P>|z|  [0.025  0.975]
+------------------------------------------------------------
+Intercept    1.290     0.052   24.712  0.000   1.188   1.392
+side        -0.036     0.007   -5.204  0.000  -0.050  -0.022
+ecc         -0.043     0.000  -86.964  0.000  -0.044  -0.042
+side:ecc     0.003     0.001    4.159  0.000   0.001   0.004
+Group Var    0.032     0.009                                
+===========================================================
+
+
+V3
+          Mixed Linear Model Regression Results
+==========================================================
+Model:            MixedLM Dependent Variable: betas       
+No. Observations: 524069  Method:             REML        
+No. Groups:       12      Scale:              2.3694      
+Min. group size:  35644   Log-Likelihood:     -969717.8192
+Max. group size:  55965   Converged:          Yes         
+Mean group size:  43672.4                                 
+-----------------------------------------------------------
+           Coef.   Std.Err.     z     P>|z|  [0.025  0.975]
+-----------------------------------------------------------
+Intercept   1.322     0.060   22.146  0.000   1.205   1.439
+side        0.068     0.007   10.375  0.000   0.055   0.081
+ecc        -0.027     0.000  -65.145  0.000  -0.028  -0.026
+side:ecc   -0.006     0.001  -10.386  0.000  -0.007  -0.005
+Group Var   0.043     0.011                                
+==========================================================
+
+
+hV4
+          Mixed Linear Model Regression Results
+==========================================================
+Model:            MixedLM Dependent Variable: betas       
+No. Observations: 266945  Method:             REML        
+No. Groups:       12      Scale:              1.8542      
+Min. group size:  18816   Log-Likelihood:     -461250.4346
+Max. group size:  27958   Converged:          Yes         
+Mean group size:  22245.4                                 
+-----------------------------------------------------------
+            Coef.   Std.Err.    z     P>|z|  [0.025  0.975]
+-----------------------------------------------------------
+Intercept    1.079     0.073  14.754  0.000   0.936   1.223
+side         0.312     0.008  40.082  0.000   0.297   0.327
+ecc          0.001     0.001   1.614  0.106  -0.000   0.002
+side:ecc    -0.003     0.001  -4.162  0.000  -0.004  -0.002
+Group Var    0.064     0.020                               
+==========================================================
+
+
+VO1
+          Mixed Linear Model Regression Results
+==========================================================
+Model:            MixedLM Dependent Variable: betas       
+No. Observations: 123207  Method:             REML        
+No. Groups:       12      Scale:              1.0492      
+Min. group size:  7567    Log-Likelihood:     -177838.7055
+Max. group size:  14301   Converged:          Yes         
+Mean group size:  10267.2                                 
+-----------------------------------------------------------
+           Coef.   Std.Err.     z     P>|z|  [0.025  0.975]
+-----------------------------------------------------------
+Intercept   1.392     0.086   16.254  0.000   1.224   1.560
+side       -0.122     0.009  -13.358  0.000  -0.140  -0.104
+ecc        -0.027     0.001  -40.413  0.000  -0.028  -0.026
+side:ecc    0.022     0.001   23.273  0.000   0.020   0.023
+Group Var   0.087     0.037                                
+==========================================================
+
+
+VO2
+          Mixed Linear Model Regression Results
+=========================================================
+Model:            MixedLM Dependent Variable: betas      
+No. Observations: 74235   Method:             REML       
+No. Groups:       12      Scale:              0.4524     
+Min. group size:  4641    Log-Likelihood:     -75951.5677
+Max. group size:  7273    Converged:          Yes        
+Mean group size:  6186.2                                 
+---------------------------------------------------------
+              Coef.  Std.Err.    z    P>|z| [0.025 0.975]
+---------------------------------------------------------
+Intercept      0.645    0.051  12.580 0.000  0.544  0.745
+side           0.240    0.009  28.100 0.000  0.223  0.257
+ecc           -0.012    0.001 -24.149 0.000 -0.013 -0.011
+side:ecc       0.002    0.001   2.231 0.026  0.000  0.003
+Group Var      0.031    0.020                            
+=========================================================
+
+
+V3a
+          Mixed Linear Model Regression Results
+==========================================================
+Model:            MixedLM Dependent Variable: betas       
+No. Observations: 157276  Method:             REML        
+No. Groups:       12      Scale:              1.1175      
+Min. group size:  10220   Log-Likelihood:     -231956.3170
+Max. group size:  17696   Converged:          Yes         
+Mean group size:  13106.3                                 
+-----------------------------------------------------------
+           Coef.   Std.Err.     z     P>|z|  [0.025  0.975]
+-----------------------------------------------------------
+Intercept   1.198     0.066   18.193  0.000   1.069   1.327
+side        0.290     0.007   41.397  0.000   0.276   0.303
+ecc        -0.041     0.000  -84.752  0.000  -0.042  -0.040
+side:ecc   -0.006     0.001   -8.227  0.000  -0.007  -0.004
+Group Var   0.052     0.021                                
+==========================================================
+
+
+V3b
+          Mixed Linear Model Regression Results
+==========================================================
+Model:            MixedLM Dependent Variable: betas       
+No. Observations: 113736  Method:             REML        
+No. Groups:       12      Scale:              0.4826      
+Min. group size:  6937    Log-Likelihood:     -120006.7892
+Max. group size:  13405   Converged:          Yes         
+Mean group size:  9478.0                                  
+-----------------------------------------------------------
+           Coef.   Std.Err.     z     P>|z|  [0.025  0.975]
+-----------------------------------------------------------
+Intercept   0.858     0.063   13.634  0.000   0.735   0.982
+side        0.156     0.007   22.218  0.000   0.143   0.170
+ecc        -0.017     0.000  -44.211  0.000  -0.018  -0.016
+side:ecc   -0.008     0.001  -16.232  0.000  -0.009  -0.007
+Group Var   0.047     0.029                                
+==========================================================
+
+
+LO1
+          Mixed Linear Model Regression Results
+==========================================================
+Model:            MixedLM Dependent Variable: betas       
+No. Observations: 124460  Method:             REML        
+No. Groups:       12      Scale:              0.4150      
+Min. group size:  6888    Log-Likelihood:     -121940.1349
+Max. group size:  14441   Converged:          Yes         
+Mean group size:  10371.7                                 
+-----------------------------------------------------------
+           Coef.   Std.Err.     z     P>|z|  [0.025  0.975]
+-----------------------------------------------------------
+Intercept   0.524     0.070    7.486  0.000   0.387   0.661
+side        0.220     0.007   33.178  0.000   0.207   0.233
+ecc         0.007     0.000   17.126  0.000   0.006   0.008
+side:ecc   -0.015     0.001  -26.674  0.000  -0.016  -0.014
+Group Var   0.058     0.040                                
+==========================================================
+
+
+LO2
+          Mixed Linear Model Regression Results
+=========================================================
+Model:            MixedLM Dependent Variable: betas      
+No. Observations: 92456   Method:             REML       
+No. Groups:       12      Scale:              0.2350     
+Min. group size:  5985    Log-Likelihood:     -64313.9814
+Max. group size:  10024   Converged:          Yes        
+Mean group size:  7704.7                                 
+---------------------------------------------------------
+              Coef.  Std.Err.    z    P>|z| [0.025 0.975]
+---------------------------------------------------------
+Intercept      0.478    0.084   5.707 0.000  0.314  0.642
+side          -0.200    0.006 -32.359 0.000 -0.212 -0.188
+ecc           -0.005    0.000 -15.896 0.000 -0.006 -0.005
+side:ecc       0.006    0.001  12.304 0.000  0.005  0.007
+Group Var      0.084    0.074                            
+=========================================================
+
+
+TO1
+          Mixed Linear Model Regression Results
+==========================================================
+Model:            MixedLM Dependent Variable: betas       
+No. Observations: 101549  Method:             REML        
+No. Groups:       12      Scale:              0.5802      
+Min. group size:  6090    Log-Likelihood:     -116509.3482
+Max. group size:  11998   Converged:          Yes         
+Mean group size:  8462.4                                  
+-----------------------------------------------------------
+           Coef.   Std.Err.     z     P>|z|  [0.025  0.975]
+-----------------------------------------------------------
+Intercept   0.884     0.093    9.527  0.000   0.702   1.066
+side       -0.367     0.009  -40.756  0.000  -0.385  -0.349
+ecc        -0.037     0.001  -72.485  0.000  -0.037  -0.036
+side:ecc    0.007     0.001    9.974  0.000   0.006   0.008
+Group Var   0.103     0.056                                
+==========================================================
+
+
+TO2
+          Mixed Linear Model Regression Results
+==========================================================
+Model:            MixedLM Dependent Variable: betas       
+No. Observations: 340032  Method:             REML        
+No. Groups:       12      Scale:              1.1308      
+Min. group size:  24528   Log-Likelihood:     -503449.7230
+Max. group size:  33894   Converged:          Yes         
+Mean group size:  28336.0                                 
+-----------------------------------------------------------
+           Coef.   Std.Err.     z     P>|z|  [0.025  0.975]
+-----------------------------------------------------------
+Intercept   1.150     0.086   13.429  0.000   0.982   1.318
+side       -0.160     0.006  -24.744  0.000  -0.173  -0.148
+ecc        -0.010     0.000  -29.786  0.000  -0.011  -0.010
+side:ecc    0.007     0.000   13.916  0.000   0.006   0.008
+Group Var   0.088     0.034                                
+==========================================================
+
+

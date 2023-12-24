@@ -16,8 +16,7 @@ def get_prf_data(sub_directory, filename):
         img = nib.load(file_path)
 
         # Access the data array
-        data = np.squeeze(img.get_fdata())
-        print(data.shape)
+        data = np.squeeze(img.get_fdata())       
         subject_data.append(data)
 
     return subject_data
@@ -43,8 +42,6 @@ def load_all_prf_data(directory,file):
     for f in os.listdir(directory):                
         if patron.match(f):
             temp=np.load(f"{directory}\\{f}", allow_pickle=True)
-            print(f"max left: {np.max(temp[0])}")
-            print(f"max right: {np.max(temp[1])}")
             data.append(temp)
 
     #np.save(f"{directory}\\all_{file}",data)

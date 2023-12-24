@@ -41,7 +41,7 @@ for index_roi in range(1,len(rois)+1):
 
 
         plt.plot(X_test_0, y_pred_0, color=colors[index_df], linewidth=3, label=f'left {index_df + 1}')
-        plt.plot(X_test_1, y_pred_1, color=colors[index_df], linewidth=3, linestyle='--', label=f"rigth {index_df + 1}")
+        plt.plot(X_test_1, y_pred_1, color=colors[index_df], linewidth=3, linestyle='--', label=f"right {index_df + 1}")
 
     plt.xlabel('size')
     plt.ylabel('ecc')

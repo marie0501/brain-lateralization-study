@@ -10,7 +10,6 @@ def preferred_spatial_frequency(directory):
     for file in os.listdir(directory):        
         beta = np.load(f"{directory}\\{file}")
         index_sub = np.empty((4,beta.shape[1]))
-        print(file)
         for freq in range(4):           
             for voxel in range(beta.shape[1]):
                 temp = beta[freq*10:freq*10+10,voxel]            

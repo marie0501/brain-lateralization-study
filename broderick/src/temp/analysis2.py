@@ -44,23 +44,23 @@ def analysis():
         indices_ecc_right = get_all_roi_indices_ecc(ecc_per_roi_right,ecc_ranges)
 
         betas_rings_left = []
-        betas_rings_rigth = []
+        betas_rings_right = []
 
 
         for iroi in range(len(indices_ecc_left)):
             temp_left =[]
-            temp_rigth =[]
+            temp_right =[]
             for ring in range(len(roi)):
                 temp_left.append(beta_left[iroi][:,indices_ecc_left[iroi][ring]])
-                temp_rigth.append(beta_right[iroi][:,indices_ecc_right[iroi][ring]])
+                temp_right.append(beta_right[iroi][:,indices_ecc_right[iroi][ring]])
             betas_rings_left.append(temp_left)
-            betas_rings_rigth.append(temp_rigth)
+            betas_rings_right.append(temp_right)
         
         
         mean_betas_left = mean_all_rings(betas_rings_left)
-        mean_betas_rigth = mean_all_rings(betas_rings_rigth)
+        mean_betas_right = mean_all_rings(betas_rings_right)
 
-        betas.append([mean_betas_left,mean_betas_rigth])
+        betas.append([mean_betas_left,mean_betas_right])
         
     #     for freq in range(4):
 
@@ -72,7 +72,7 @@ def analysis():
     #         side_result.extend(np.zeros(ecc[sub][0].shape))
     #         subj_result.extend(np.ones(ecc[sub][0].shape)*(sub+1))
 
-    #         # rigth
+    #         # right
     #         psf_result.extend(psf_r[freq,:])
     #         roi_result.extend(roi[sub][1])
     #         ecc_result.extend(ecc[sub][1])

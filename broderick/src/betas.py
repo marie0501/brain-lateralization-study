@@ -28,7 +28,6 @@ def get_all_betas(directory, filename_prefix, smooth=False):
 
     # Iterate through the files in the directory
     for filename in os.listdir(directory):
-        print(filename)
         if pattern.match(filename):
             beta_files = get_betas(directory,filename)
             # Save betas
