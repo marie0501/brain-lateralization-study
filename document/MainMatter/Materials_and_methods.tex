@@ -1,0 +1,75 @@
+\chapter{Materiales y M\'etodos}\label{chapter:materials_and_methods}
+
+\todo{poner p\'arrafo introductorio}
+
+\section{Datos}
+
+Se utilizaron los datos analizados en [\cite{broderick_mapping_2022}] donde se realiza un experimento con 12 sujetos para determinar la relación entre la frecuencia espacial y la excentricidad en la corteza visual temprana humana\todo{poner V1}. En este estudio se trabajar\'a con los siguientes datos obtenidos en de cada sujeto: estimaciones de amplitud de respuesta de las activaciones neurales medidas en la se\~nal de fMRI (cambio en la cantidad de ox\'igeno en la sangre) al est\'imulo presentado a los sujetos en el experimento y las soluciones de pRF. En esta secci\'on se explicar\'a la naturaleza de los datos.
+
+\subsection{Primera Categor\'ia}
+
+Se obtuvieron datos de fMRI\todo{explicar un poco de fMRI} de cada uno de los 12 sujetos, los cuales fueron preprocesados (Ver [\cite{broderick_mapping_2022}] para m\'as detalles)
+
+En el experimento se midieron las respuestas BOLD de los sujetos a un conjunto de estímulos.  de rejilla novedosos para medir la sintonización de frecuencia espacial en V1 a través de excentricidades, ángulos retinotópicos y orientaciones de estímulo. 
+
+Las amplitudes de la respuesta al est\'imulo se estimaron utilizando la caja de herramientas GLMdenoise MATLAB (Kay et al., 2013a). El algoritmo se ajusta a una función de respuesta hemodinámica específica del observador, estimando amplitudes de respuesta (en unidades de porcentaje de cambio de señal BOLD) para cada vóxel y para cada estímulo, con 100 bootstraps en las ejecuciones. Por lo tanto, para cada vóxel estimamos 48 respuestas (una para cada par único ($\omega_a$,$\omega_r$), promediadas en las ocho fases que se muestran en las pruebas). El algoritmo también incluye tres regresores polinomiales (grados 0 a 2) para capturar la media de la señal y la deriva lenta, y regresores de ruido derivados de vóxeles cerebrales que no están bien ajustados por el GLM.
+
+\subsection{pRF}
+
+Se utilizó un experimento de retinotopía separado para obtener la ubicación y el tamaño de pRF para los vóxeles V1 en cada sujeto (Wandell \& Winawer, 2015). Este experimento consistió en seis ejecuciones de mapeo pRF estándar, con amplias aperturas de contraste de barras llenas de una variedad de objetos, rostros y texturas coloridos. Se ha demostrado que este estímulo es eficaz para provocar respuestas BOLD en muchos de los mapas retinotópicos de la corteza visual (Benson \& Winawer, 2018;Benson et al., 2018;Himmelberg et al., 2021). Los resultados de este mapeo de pRF se combinaron con un atlas retinotópico (Benson et al., 2014) para mejorar la precisión del mapa retinotópico (consulte Benson \& Winawer, 2018, para obtener una descripción de este método). El estímulo, los parámetros de adquisición de fMRI y el preprocesamiento de fMRI para los experimentos de retinotopía se describen en detalle en Benson y Winawer (2018) y Himmelberg et al. (2021).
+
+Adem\'as, se utilizó un experimento de retinotopía separado para obtener la ubicación y el tamaño de pRF para los vóxeles V1 en cada sujeto.
+
+
+%las soluciones de pRF para cada sujeto, incluidos los atlas anatómicos de Benson 2014 (Benson et al, 2014) y las soluciones de retinotopía bayesiana (Benson y Winawer, 2018).
+%sub-*/ses-04/func/*events.tsv: los archivos events.tsv que definen los eventos del escáner, utilizados para realizar el análisis de comportamiento.
+
+%En este experimento, medimos las respuestas BOLD de 12 observadores humanos a un conjunto de estímulos de rejilla novedosos para medir la sintonización de frecuencia espacial en la corteza visual primaria a través de excentricidades, ángulos retinotópicos y orientaciones de estímulo. Luego ajustamos un modelo paramétrico que ajusta todos los vóxeles para un sujeto determinado simultáneamente, prediciendo la respuesta de cada vóxel en función de la ubicación retinotópica del vóxel y la frecuencia y orientación espacial local del estímulo.
+
+%Retinotopía 
+
+
+%Este conjunto de datos son los datos "parcialmente procesados" para el proyecto de preferencias de frecuencia espacial y contiene los archivos .mat creados por GLMdenoise.
+
+%Estimación de la respuesta al estímulo Las amplitudes de la respuesta se estimaron utilizando la caja de herramientas GLMdenoise MATLAB (Kay et al., 2013a). El algoritmo se ajusta a una función de respuesta hemodinámica específica del observador, estimando amplitudes de respuesta (en unidades de porcentaje de cambio de señal BOLD) para cada vóxel y para cada estímulo, con 100 bootstraps en las ejecuciones. Por lo tanto, para cada vóxel estimamos 48 respuestas (una para cada par único ($\omega_a$,$\omega_r$), promediadas en las ocho fases que se muestran en las pruebas). El algoritmo también incluye tres regresores polinomiales (grados 0 a 2) para capturar la media de la señal y la deriva lenta, y regresores de ruido derivados de vóxeles cerebrales que no están bien ajustados por el GLM. Las mediciones combinadas de retinotopía y GLMdenoise consisten en (para cada vóxel): el área visual, la ubicación y el tamaño de PRF y 100 amplitudes de respuesta de arranque para cada uno de los 48 estímulos.
+
+\section{Preprocesamiento de los datos}
+
+\subsection{Mapa Bayesiano para delimitar \'areas visuales}
+
+\subsection{Modelo unidimensional para hallar per\'iodo preferido}
+
+
+\section{Estad\'isticas}
+
+\subsection{Modelos}
+
+\begin{equation}
+	per\'iodo_preferido ~ 1 + (1|subj) + (1|superclass)
+\end{equation}
+
+\begin{equation}
+	per\'iodo_preferido ~ eccen + (1|subj) + (1|superclass)
+\end{equation}
+
+\begin{equation}
+	per\'iodo_preferido ~ eccen + side + (1|subj) + (1|superclass)
+\end{equation}
+
+\begin{equation}
+	per\'iodo_preferido ~ eccen*side + (1|subj) + (1|superclass)
+\end{equation}
+
+\section{Per\'iodo Preferido}
+
+Periodo Preferido: Se refiere a la frecuencia de un estímulo visual que maximiza la respuesta de un voxel particular en el cerebro.
+
+Curva para Hallar el Periodo Preferido: Es una representación gráfica que muestra cómo la respuesta de un voxel varía en función de la frecuencia del estímulo visual, ayudando a identificar el periodo preferido.
+
+Ajustamos curvas de sintonización log-normales unidimensionales a las respuestas de grupos de vóxeles con diferentes excentricidades (que se encuentran dentro de contenedores de excentricidad de 1°):
+
+\[\beta_b(w_l) = A_b \cdot exp(\frac{-(log_2(w_l)+log_2(p_b))^2}{2\sigma_b^2})\] \todo{poner hat a beta}
+
+donde $\beta_b(w_l)$ es la respuesta BOLD promedio en el intervalo de excentricidad $b$ a la frecuencia espacial $w_l$ (en ciclos por grado), $A_b$ es la ganancia de respuesta, pb es el período preferido (el recíproco de la frecuencia espacial máxima, $w_b$, que es la moda de la curva de sintonización), y $\sigma_b$ es el ancho de banda, en octavas. Los ajustes se obtuvieron por separado para las cuatro clases de estímulos principales (molinete, anillo, espiral hacia adelante y espiral inversa). Ajustamos estas curvas de sintonización 100 veces por sujeto, por clase de estímulo y por excentricidad, iniciando las ejecuciones de fMRI (12 por sujeto).
+
+
