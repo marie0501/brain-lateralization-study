@@ -4,72 +4,139 @@
 
 \section{Datos}
 
-Se utilizaron los datos analizados en [\cite{broderick_mapping_2022}] donde se realiza un experimento con 12 sujetos para determinar la relación entre la frecuencia espacial y la excentricidad en la corteza visual temprana humana\todo{poner V1}. En este estudio se trabajar\'a con los siguientes datos obtenidos en de cada sujeto: estimaciones de amplitud de respuesta de las activaciones neurales medidas en la se\~nal de fMRI (cambio en la cantidad de ox\'igeno en la sangre) al est\'imulo presentado a los sujetos en el experimento y las soluciones de pRF. En esta secci\'on se explicar\'a la naturaleza de los datos.
+Se emplearon los datos analizados en el estudio de [\cite{broderick_mapping_2022}], donde se lleva a cabo un experimento con la participación de 12 sujetos. El objetivo principal de este experimento fue explicar la relación existente entre la frecuencia espacial y la excentricidad en la región V1 del cerebro. Este estudio proporciona una valiosa base de datos, compuesta por estimaciones de amplitud de respuesta de las activaciones neurales, medidas a trav\'es de fMRI, a los diferentes estímulos presentados a los sujetos durante el experimento. Además, se obtuvieron las soluciones de los campos receptivos poblacionales (pRF) de cada sujeto.
 
-\subsection{Primera Categor\'ia}
+En esta sección, se brindará una explicación detallada sobre la naturaleza de los datos recopilados en este estudio.
 
-Se obtuvieron datos de fMRI\todo{explicar un poco de fMRI} de cada uno de los 12 sujetos, los cuales fueron preprocesados (Ver [\cite{broderick_mapping_2022}] para m\'as detalles)
+\subsection{Amplitudes de respuesta de la activaci\'on neuronal}
 
-En el experimento se midieron las respuestas BOLD de los sujetos a un conjunto de estímulos.  de rejilla novedosos para medir la sintonización de frecuencia espacial en V1 a través de excentricidades, ángulos retinotópicos y orientaciones de estímulo. 
+Durante la realización del experimento, se procedió al registro de las respuestas BOLD (Blood Oxygen Level Dependent) de los participantes en respuesta a un conjunto de est\'imulos de rejilla novedosos\todo{poner imagen}. Estos estímulos comprendieron 48 vectores de frecuencia diferentes, distribuidos en 8 fases distintas (0, $\frac{\pi}{4}$, $\frac{\pi}{2}$, ..., $\frac{7\pi}{4}$). Dichos vectores de frecuencia se clasificaron en cinco categorías: angular, radial, espiral hacia adelante, espiral hacia atrás y mixto. Para los primeros cuatro estímulos, se consideraron 10 posibles combinaciones de pares ($\omega_a$,$\omega_r$), donde $\omega_a$ representa la frecuencia angular y $\omega_r$ la frecuencia radial del estímulo, mientras que el último solo abarcó 8 combinaciones posibles (consultar [\cite{broderick_mapping_2022}] para obtener información más detallada). La frecuencia angular $\omega_a$ es un número entero que especifica el número de ciclos de rejilla por revolución alrededor de la imagen, y la frecuencia radial $\omega_r$ especifica el número de radianes por unidad de aumento en $ln(r)$, con $r$ siendo la excentricidad.
 
-Las amplitudes de la respuesta al est\'imulo se estimaron utilizando la caja de herramientas GLMdenoise MATLAB (Kay et al., 2013a). El algoritmo se ajusta a una función de respuesta hemodinámica específica del observador, estimando amplitudes de respuesta (en unidades de porcentaje de cambio de señal BOLD) para cada vóxel y para cada estímulo, con 100 bootstraps en las ejecuciones. Por lo tanto, para cada vóxel estimamos 48 respuestas (una para cada par único ($\omega_a$,$\omega_r$), promediadas en las ocho fases que se muestran en las pruebas). El algoritmo también incluye tres regresores polinomiales (grados 0 a 2) para capturar la media de la señal y la deriva lenta, y regresores de ruido derivados de vóxeles cerebrales que no están bien ajustados por el GLM.
+Las amplitudes de respuesta a estos estímulos, se estimaron utilizando la caja de herramientas \texttt{GLMdenoise} \todo{citar} en el entorno de programación MATLAB. \texttt{GLMdenoise} es una herramienta diseñada para mejorar la calidad de los datos de fMRI, eliminando artefactos y ruido, lo que facilita una interpretación más precisa de la actividad neuronal. El algoritmo ajusta una función de respuesta hemodinámica (HRF) específica del observador, estimando las amplitudes de respuesta para cada v\'ertice cortical y cada estímulo mediante 100 ejecuciones de bootstrap. La HRF modela la relación temporal entre la actividad neuronal y los cambios en el flujo sanguíneo en el cerebro.
+
+En consecuencia, se obtuvieron 48 respuestas para cada vóxel (una para cada par único de ($\omega_a$,$\omega_r$)), y estas respuestas fueron promediadas a lo largo de las ocho fases presentadas en las pruebas. Además, el algoritmo incorpora tres regresores polinomiales (grados 0 a 2) para capturar la tendencia media de la señal y la deriva lenta, así como regresores de ruido derivados de vóxeles cerebrales que no se ajustan adecuadamente mediante el modelo lineal general (GLM). 
+
+Estos datos se pueden encontrar en \todo{poner enlace}
 
 \subsection{pRF}
 
-Se utilizó un experimento de retinotopía separado para obtener la ubicación y el tamaño de pRF para los vóxeles V1 en cada sujeto (Wandell \& Winawer, 2015). Este experimento consistió en seis ejecuciones de mapeo pRF estándar, con amplias aperturas de contraste de barras llenas de una variedad de objetos, rostros y texturas coloridos. Se ha demostrado que este estímulo es eficaz para provocar respuestas BOLD en muchos de los mapas retinotópicos de la corteza visual (Benson \& Winawer, 2018;Benson et al., 2018;Himmelberg et al., 2021). Los resultados de este mapeo de pRF se combinaron con un atlas retinotópico (Benson et al., 2014) para mejorar la precisión del mapa retinotópico (consulte Benson \& Winawer, 2018, para obtener una descripción de este método). El estímulo, los parámetros de adquisición de fMRI y el preprocesamiento de fMRI para los experimentos de retinotopía se describen en detalle en Benson y Winawer (2018) y Himmelberg et al. (2021).
+Con el objetivo de obtener información precisa sobre la ubicación y tamaño de los pRF en cada sujeto, se llevó a cabo un experimento de retinotopía independiente. 
 
-Adem\'as, se utilizó un experimento de retinotopía separado para obtener la ubicación y el tamaño de pRF para los vóxeles V1 en cada sujeto.
+Los resultados de este mapeo de pRF se integraron con un atlas retinotópico existente desarrollado por Benson et al. (2014)\todo{citar} utilizando el método de mapa retinotópico bayesiano propuesto por Benson en 2018\todo{citar}. Este enfoque aprovecha la información detallada de la respuesta de los pRF y la estructura de referencia proporcionada por el atlas retinotópico, lo que permite obtener una representación más precisa y confiable de la organización retinotópica en el cerebro de cada sujeto.
 
+Las estimaciones obtenidas mediante el método bayesiano incluyen la excentricidad, el ángulo polar, el tamaño de los pRF y la delimitación de áreas visuales específicas para cada sujeto. Las áreas visuales estimadas abarcan V1, V2, V3, hV4, VO1, VO2, LO1, LO2, TO1, TO2, V3b y V3a.
 
-%las soluciones de pRF para cada sujeto, incluidos los atlas anatómicos de Benson 2014 (Benson et al, 2014) y las soluciones de retinotopía bayesiana (Benson y Winawer, 2018).
-%sub-*/ses-04/func/*events.tsv: los archivos events.tsv que definen los eventos del escáner, utilizados para realizar el análisis de comportamiento.
-
-%En este experimento, medimos las respuestas BOLD de 12 observadores humanos a un conjunto de estímulos de rejilla novedosos para medir la sintonización de frecuencia espacial en la corteza visual primaria a través de excentricidades, ángulos retinotópicos y orientaciones de estímulo. Luego ajustamos un modelo paramétrico que ajusta todos los vóxeles para un sujeto determinado simultáneamente, prediciendo la respuesta de cada vóxel en función de la ubicación retinotópica del vóxel y la frecuencia y orientación espacial local del estímulo.
-
-%Retinotopía 
+El método bayesiano se llevó a cabo utilizando la biblioteca \texttt{neuropythy} de Python, la cual facilita la manipulación y el análisis de datos neurocientíficos. Los datos estan disponibles en \todo{poner enlace}
 
 
-%Este conjunto de datos son los datos "parcialmente procesados" para el proyecto de preferencias de frecuencia espacial y contiene los archivos .mat creados por GLMdenoise.
+\section{Procesamiento de los datos}
 
-%Estimación de la respuesta al estímulo Las amplitudes de la respuesta se estimaron utilizando la caja de herramientas GLMdenoise MATLAB (Kay et al., 2013a). El algoritmo se ajusta a una función de respuesta hemodinámica específica del observador, estimando amplitudes de respuesta (en unidades de porcentaje de cambio de señal BOLD) para cada vóxel y para cada estímulo, con 100 bootstraps en las ejecuciones. Por lo tanto, para cada vóxel estimamos 48 respuestas (una para cada par único ($\omega_a$,$\omega_r$), promediadas en las ocho fases que se muestran en las pruebas). El algoritmo también incluye tres regresores polinomiales (grados 0 a 2) para capturar la media de la señal y la deriva lenta, y regresores de ruido derivados de vóxeles cerebrales que no están bien ajustados por el GLM. Las mediciones combinadas de retinotopía y GLMdenoise consisten en (para cada vóxel): el área visual, la ubicación y el tamaño de PRF y 100 amplitudes de respuesta de arranque para cada uno de los 48 estímulos.
+\subsection{Estimaci\'on de per\'iodo preferido}
 
-\section{Preprocesamiento de los datos}
+En el análisis de los datos mencionados, se empleó la modelación propuesta por Broderick para ajustar una curva de sintonización log-normal unidimensional a las estimaciones de amplitud de respuesta neural de cada voxel, con el objetivo de estimar los valores de período preferido de cada voxel.
 
-\subsection{Mapa Bayesiano para delimitar \'areas visuales}
+La ecuación del modelo utilizada es la siguiente:
+\begin{equation}
+\hat{\beta}_b(w_l) = A_b \cdot \exp\left(\frac{-(\log_2(w_l) + \log_2(p_b))^2}{2\sigma_b^2}\right)
+\end{equation}
+donde \(\hat{\beta}_b(w_l)\) representa la respuesta BOLD promedio en el intervalo de excentricidad \(b\) a la frecuencia espacial \(w_l\) (en ciclos por grado). Los parámetros del modelo incluyen \(A_b\), que es la ganancia de respuesta, \(p_b\), el período preferido que se define como el recíproco de la frecuencia espacial máxima y se determina como la moda de la curva de sintonización, y \(\sigma_b\), el ancho de banda medido en octavas.
 
-\subsection{Modelo unidimensional para hallar per\'iodo preferido}
-
-
-\section{Estad\'isticas}
-
-\subsection{Modelos}
+La frecuencia espacial local de un est\'imulo visual se define como la norma euclidiana del vector de frecuencia ($\omega_a$,$\omega_r$) dividida por la excentricidad  $r$ (\ref{wl}), lo que implica que el período espacial local de los estímulos crece linealmente con la excentricidad \todo{citar Broderick}.
 
 \begin{equation}
-	per\'iodo_preferido ~ 1 + (1|subj) + (1|superclass)
+	w_l(r,\theta) = \dfrac{\sqrt{w_a^2 + w_r^2}}{r} 
+	\label{wl}
 \end{equation}
+
+Para obtener estimaciones robustas de estos parámetros, se realizaron 100 iteraciones de ajuste por sujeto, por clase de estímulo y por excentricidad utilizando el método de bootstrapping. Este enfoque implicó realizar múltiples ajustes utilizando muestras aleatorias con reemplazo de las 12 ejecuciones de fMRI disponibles (una por cada sujeto).
+
+El método de bootstrapping contribuye a la robustez de los resultados al tener en cuenta la variabilidad natural de las respuestas neuronales a lo largo de múltiples repeticiones del experimento. Así, se logra una caracterización detallada de la respuesta de cada voxel, proporcionando información valiosa sobre la frecuencia espacial preferida para diferentes estímulos visuales y en diversas regiones de la excentricidad en el cerebro.
+
+Los m\'odulos necesarios para aplicar esta estimaci\'on se encuentran en la carpeta src/spf del respositorio adjunto a este documento.
+
+\subsection{Limpieza de los datos}
+
+En la fase de preprocesamiento de los datos obtenidos en el presente estudio, se llevó a cabo una limpieza para garantizar la confiabilidad y validez de las mediciones. Se tomaron en consideración dos variables particulares de gran importancia en el análisis: la excentricidad y el período preferido de los voxels.
+
+Existen evidencias en la literatura que sugieren que valores extremadamente grandes o pequeños de excentricidad pueden no ser confiables en estudios neurocientíficos \todo{referencias}. Por tanto, se restringi\'o el análisis a v\'oxeles cuya excentricidad se encontraba en un rango entre 1 y 6 unidades. Esta restricción tiene como objetivo mejorar la fiabilidad de las mediciones al excluir valores que podrían introducir sesgos o errores en el análisis.
+
+Para los datos de período preferido de los voxels, se aplicó una transformación logarítmica con el propósito de abordar posibles asimetrías en la distribución y reducir la escala de los datos. Además, se llevó a cabo un filtrado al considerar únicamente aquellos valores cuyo logaritmo era mayor que -6. Esta decisión se basa en la necesidad de excluir valores extremadamente pequeños, que podrían afectar la estabilidad numérica del análisis y no aportarían significativamente a la comprensión de la respuesta neuronal. Esta estrategia también contribuye a manejar posibles datos atípicos que podrían influir negativamente en la interpretación de los resultados.
+
+\section{Modelo lineal mixto}
+
+Con el propósito de validar nuestras hipótesis, (1) que los campos receptivos (pRF) en el hemisferio derecho del cerebro son mayores que en el hemisferio izquierdo, y (2) que la frecuencia espacial preferida de los voxels en el hemisferio derecho es menor que la preferida en el hemisferio izquierdo, se han implementado modelos lineales mixtos. Un modelo lineal mixto es una extensión del modelo lineal que permite tener en cuenta tanto efectos fijos como aleatorios en los datos. En esta sección, se detallarán los aspectos fundamentales de la formulación de los modelos diseñados para la evaluación de cada una de las hipótesis planteadas.
+
+\subsection{{Modelo Lineal Mixto para la Tama\~no de pRF}
+
+\subsection{Modelo Lineal Mixto para la Frecuencia Espacial Preferida}
+
+En la formulación del modelo lineal mixto relacionado con la segunda hip\'otesis, se busca entender la relación entre la frecuencia espacial preferida de los vóxeles y factores como la excentricidad y el hemisferio cerebral. Para ello, se propone el siguiente modelo:
 
 \begin{equation}
-	per\'iodo_preferido ~ eccen + (1|subj) + (1|superclass)
+	\text{Período Preferido} \sim  \text{Excentricidad} \times \text{Hemisferio} + (1|\text{Sujeto}) + (1|\text{Estímulo})	
 \end{equation}
+donde:
+\begin{itemize}
+	\item Período Preferido: Representa la variable dependiente que se desea modelar, y en este contexto, se utiliza como inverso de la frecuencia espacial preferida.
+	
+	\item Excentricidad y Hemisferio: Son las variables predictoras que se asocian con el período preferido. La interacción entre la excentricidad y el hemisferio permite capturar las posibles influencias conjuntas de estas variables en la respuesta neuronal.
+	
+	\item (1$|$Subjeto): Este término aleatorio modela la variabilidad entre los diferentes sujetos en el estudio. Cada sujeto puede tener características individuales que contribuyan a la variabilidad en la respuesta neuronal al estímulo visual.
 
-\begin{equation}
-	per\'iodo_preferido ~ eccen + side + (1|subj) + (1|superclass)
-\end{equation}
+	\item (1$|$Est\'imulo): Representa un término aleatorio para cada estímulo utilizado en el experimento. Diferentes estímulos pueden generar respuestas neurales distintas, y este término captura esa variabilidad entre los estímulos.
+	
+\end{itemize}
 
-\begin{equation}
-	per\'iodo_preferido ~ eccen*side + (1|subj) + (1|superclass)
-\end{equation}
+La parte del modelo asociada con la excentricidad y el hemisferio representa los efectos fijos. Estos son los factores que queremos evaluar directamente para comprender cómo afectan al período preferido.
 
-\section{Per\'iodo Preferido}
+Los términos aleatorios (1$|$sujeto) y (1$|$estímulo) permiten modelar la variabilidad inherente a los datos, considerando las diferencias entre los sujetos y los estímulos. Estos términos aleatorios son esenciales para capturar la heterogeneidad no explicada por los efectos fijos.
 
-Periodo Preferido: Se refiere a la frecuencia de un estímulo visual que maximiza la respuesta de un voxel particular en el cerebro.
+Este enfoque proporciona una representación completa y realista de la complejidad de los datos observados en el experimento Broderick\todo{citar}.
 
-Curva para Hallar el Periodo Preferido: Es una representación gráfica que muestra cómo la respuesta de un voxel varía en función de la frecuencia del estímulo visual, ayudando a identificar el periodo preferido.
+\subsubsection{Comparaci\'on de modelos lineales mixtos para el Período Preferido}
 
-Ajustamos curvas de sintonización log-normales unidimensionales a las respuestas de grupos de vóxeles con diferentes excentricidades (que se encuentran dentro de contenedores de excentricidad de 1°):
+En este análisis adicional, se busca comparar varios modelos lineales mixtos para el período preferido mediante el factor de Bayes. A continuación, se formulan y describen los distintos modelos a comparar:
 
-\[\beta_b(w_l) = A_b \cdot exp(\frac{-(log_2(w_l)+log_2(p_b))^2}{2\sigma_b^2})\] \todo{poner hat a beta}
+\begin{itemize}
+	\item \textbf{Modelo Nulo:}	\\
+	Este modelo considera un intercepto constante como único predictor, sin incluir covariables específicas. La variabilidad entre sujetos y estímulos se captura a través de términos aleatorios. Sirve como punto de referencia para evaluar la mejora en la explicación del período preferido al introducir covariables.
+	\begin{equation}
+		\text{Período Preferido} \sim 1 + (1|\text{Sujeto}) + (1|\text{Estímulo})	
+	\end{equation}
 
-donde $\beta_b(w_l)$ es la respuesta BOLD promedio en el intervalo de excentricidad $b$ a la frecuencia espacial $w_l$ (en ciclos por grado), $A_b$ es la ganancia de respuesta, pb es el período preferido (el recíproco de la frecuencia espacial máxima, $w_b$, que es la moda de la curva de sintonización), y $\sigma_b$ es el ancho de banda, en octavas. Los ajustes se obtuvieron por separado para las cuatro clases de estímulos principales (molinete, anillo, espiral hacia adelante y espiral inversa). Ajustamos estas curvas de sintonización 100 veces por sujeto, por clase de estímulo y por excentricidad, iniciando las ejecuciones de fMRI (12 por sujeto).
+	\item\textbf{Modelo con Excentricidad:}\\
+	En este modelo, se agrega la excentricidad como predictor fijo. Se examina cómo la excentricidad se relaciona con el período preferido, considerando la variabilidad entre sujetos y estímulos. Explora si la excentricidad aporta información significativa sobre el período preferido en comparación con el Modelo Nulo.
+	\begin{equation}
+		\text{Período Preferido} \sim \text{Excentricidad} + (1|\text{Sujeto}) + (1|\text{Estímulo})	
+	\end{equation}
+
+	\item \textbf{Modelo con Excentricidad y Hemisferio:}\\
+	Este modelo incorpora tanto la excentricidad como el hemisferio como predictores fijos. Se busca evaluar cómo ambas variables influyen en el período preferido, considerando la variabilidad entre sujetos y estímulos. Extiende la exploración al agregar el hemisferio como predictor. Permite evaluar la contribución adicional del hemisferio en la explicación del período preferido.
+	\begin{equation}
+		\text{Período Preferido} \sim \text{Excentricidad} + \text{Hemisferio} + (1|\text{Sujeto}) + (1|\text{Estímulo})	
+	\end{equation}
+	
+\end{itemize}
+
+
+Este enfoque de comparación entre modelos proporciona perspectivas sobre la relevancia de las variables predictoras en la variabilidad del período preferido, facilitando la selección del modelo más informativo y ajustado a los datos observados.
+
+El Factor de Bayes se utiliza para comparar la evidencia a favor de diferentes modelos y, en el contexto de modelos lineales mixtos, puede ayudar a seleccionar el modelo que mejor se ajuste a los datos. La interpretación del Factor de Bayes implica comparar la probabilidad de los datos bajo cada modelo considerado.
+
+Para calcular el Factor de Bayes, se emplea la siguiente fórmula:
+
+\[ BF_{ij} = \frac{P(\text{Datos}|\text{Modelo}_i)}{P(\text{Datos}|\text{Modelo}_j)} \]
+
+Donde:
+- \( BF_{ij} \) es el Factor de Bayes que compara el Modelo \(i\) con el Modelo \(j\).
+- \( P(\text{Datos}|\text{Modelo}_i) \) es la probabilidad de los datos bajo el Modelo \(i\).
+- \( P(\text{Datos}|\text{Modelo}_j) \) es la probabilidad de los datos bajo el Modelo \(j\).
+
+En este contexto, para calcular \( P(\text{Datos}|\text{Modelo}) \), se puede utilizar la verosimilitud marginal o integrar la verosimilitud sobre todos los parámetros del modelo. Dado que la integración exacta puede ser compleja, se recurre a métodos aproximados como la aproximación de Laplace o métodos de Monte Carlo.
+
+En términos más sencillos, el Factor de Bayes compara cuánto más probable es que los datos sean generados por un modelo en comparación con otro. Si el Factor de Bayes es mayor a 1, hay evidencia a favor del Modelo \(i\); si es menor a 1, hay evidencia a favor del Modelo \(j\). Se suelen considerar umbrales específicos (por ejemplo, 3 a 10) para clasificar la evidencia a favor de un modelo sobre otro.
+
+En tu caso, se calcularían los Factores de Bayes comparando los modelos formulados. Luego, se evaluaría qué modelo tiene un Factor de Bayes más alto en comparación con los demás, indicando que es más probable que describa mejor los datos observados. Este enfoque ayuda a seleccionar el modelo más adecuado considerando la complejidad del modelo y la calidad de ajuste a los datos.
+
 
 

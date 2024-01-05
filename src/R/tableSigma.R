@@ -10,21 +10,24 @@ library(sjPlot)
 result_dir <- "C:\\Users\\Marie\\Documents\\thesis\\images\\"
 tables_dir <- "C:\\Users\\Marie\\Documents\\thesis\\tables\\"
 rois <- c('V1', 'V2', 'V3', 'hV4', 'VO1', 'VO2', 'LO1', 'LO2', 'TO1','TO2','V3b','V3a')
+
 tab <- NULL
+
+table <- read.csv("C:\\Users\\Marie\\Documents\\thesis\\tables\\sigma_table_all_rois.csv")
+
+table <-table[table$eccen < 6,]
 
 for (iroi in 1:12)
 {
   print(iroi) 
-  data <- read.csv(paste0(tables_dir,rois[iroi],"_table_all_cleaned.csv"))
+  data <- table[table$area == iroi,]
   #data$preferred_period <-log(data$preferred_period)
-  data <- data[data$preferred_period > -6,]
-  data <- data[data$gml_r2 > 1,]
-  data <-data[data$eccen < 6,]
   
-  model0 <- lmer(sigma ~ 1  + (1 | subj) + (1| stimulus_superclass), data = data)
-  model1 <- lmer(sigma ~ eccen  + (1 | subj) + (1| stimulus_superclass), data = data)
-  model2 <- lmer(sigma ~ eccen + side + (1 | subj) + (1| stimulus_superclass), data = data)
-  model3 <- lmer(sigma ~ eccen * side + (1 | subj) + (1| stimulus_superclass), data = data)
+  
+  model0 <- lmer(sigma ~ 1  + (1 | subj), data = data)
+  model1 <- lmer(sigma ~ eccen  + (1 | subj), data = data)
+  model2 <- lmer(sigma ~ eccen + side + (1 | subj), data = data)
+  model3 <- lmer(sigma ~ eccen * side + (1 | subj), data = data)
   
   BF_eccen = exp((BIC(model0)-BIC(model1))/2)
   print(BF_eccen)
@@ -44,8 +47,8 @@ for (iroi in 1:12)
   temp <- cbind(rn,coeff['eccen',],coeff['side',],coeff['eccen:side',])
   cn <- colnames(temp)
   cn[2:5] <- paste0('Excentricidad.',cn[2:5])
-  cn[6:9] <- paste0('Lado.',cn[6:9])
-  cn[10:13] <- paste0('Excentricidad:Lado.',cn[10:13])
+  cn[6:9] <- paste0('Hemisferio.',cn[6:9])
+  cn[10:13] <- paste0('Excentricidad:Hemisferio.',cn[10:13])
   colnames(temp)<-cn
   tab <- rbind(tab,temp)
   
@@ -59,8 +62,8 @@ flextable::save_as_image(w, path = paste0(result_dir,'table_sigma',".png"))
 #dt <- flextable::dim_pretty(nt)
 
 
-#save(tab,file = paste0(result_dir,'tab_all_rois'))
-
+#save(tab,file = paste0(result_dir,'tab_sigma_all_rois.csv'))
+#
 #df <- data.frame(x = factor(tab$áreas,levels = tab$áreas), y = c(tab$Excentricidad.Coef,tab$Lado.Coef,tab$`Excentricidad:Lado.Coef`),group=rep(c('Excentricidad','Lado','Excentricidad:Lado'),each=12))
 #g <- ggplot(df, aes(x=x, y=y, group = group, color=group)) +  
 #  geom_line(linewidth = 1.5) + 
