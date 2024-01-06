@@ -62,18 +62,17 @@ Existen evidencias en la literatura que sugieren que valores extremadamente gran
 
 Para los datos de período preferido de los voxels, se aplicó una transformación logarítmica con el propósito de abordar posibles asimetrías en la distribución y reducir la escala de los datos. Además, se llevó a cabo un filtrado al considerar únicamente aquellos valores cuyo logaritmo era mayor que -6. Esta decisión se basa en la necesidad de excluir valores extremadamente pequeños, que podrían afectar la estabilidad numérica del análisis y no aportarían significativamente a la comprensión de la respuesta neuronal. Esta estrategia también contribuye a manejar posibles datos atípicos que podrían influir negativamente en la interpretación de los resultados.
 
-\section{Modelo lineal mixto}
-
-Con el propósito de validar nuestras hipótesis, (1) que los campos receptivos (pRF) en el hemisferio derecho del cerebro son mayores que en el hemisferio izquierdo, y (2) que la frecuencia espacial preferida de los voxels en el hemisferio derecho es menor que la preferida en el hemisferio izquierdo, se han implementado modelos lineales mixtos. Un modelo lineal mixto es una extensión del modelo lineal que permite tener en cuenta tanto efectos fijos como aleatorios en los datos. En esta sección, se detallarán los aspectos fundamentales de la formulación de los modelos diseñados para la evaluación de cada una de las hipótesis planteadas.
-
-\subsection{Modelo Lineal Mixto para la Tama\~no de pRF}
+\section{Modelo Lineal Mixto}
+\label{mlm}
+Con el objetivo de validar nuestra hipótesis, que postula que la frecuencia espacial preferida de los voxels en el hemisferio derecho es menor que la preferida en el hemisferio izquierdo, hemos implementado un modelo lineal mixto. Este tipo de modelo es una extensión del modelo lineal clásico y permite considerar tanto efectos fijos como aleatorios en los datos. En esta sección, se detallarán los aspectos fundamentales de la formulación de los modelos diseñados para evaluar cada una de las hipótesis propuestas.
 
 \subsection{Modelo Lineal Mixto para la Frecuencia Espacial Preferida}
 
-En la formulación del modelo lineal mixto relacionado con la segunda hip\'otesis, se busca entender la relación entre la frecuencia espacial preferida de los vóxeles y factores como la excentricidad y el hemisferio cerebral. Para ello, se propone el siguiente modelo:
+En la formulación del modelo lineal mixto relacionado con la hip\'otesis, se busca entender la relación entre la frecuencia espacial preferida de los vóxeles y factores como la excentricidad y el hemisferio cerebral. Para ello, se propone el siguiente modelo:
 
 \begin{equation}
 	\text{Período Preferido} \sim  \text{Excentricidad} \times \text{Hemisferio} + (1|\text{Sujeto}) + (1|\text{Estímulo})	
+	\label{mlm_pp}
 \end{equation}
 donde:
 \begin{itemize}
@@ -93,50 +92,39 @@ Los términos aleatorios (1$|$sujeto) y (1$|$estímulo) permiten modelar la vari
 
 Este enfoque proporciona una representación completa y realista de la complejidad de los datos observados en el experimento Broderick\todo{citar}.
 
-\subsubsection{Comparaci\'on de modelos lineales mixtos para el Período Preferido}
+\subsection{Comparaci\'on de modelos lineales mixtos para el Período Preferido} \label{compare_mlm}
 
-En este análisis adicional, se busca comparar varios modelos lineales mixtos para el período preferido mediante el factor de Bayes. A continuación, se formulan y describen los distintos modelos a comparar:
+Adicionalmente, se comparan varios modelos lineales mixtos para el período preferido mediante el factor de Bayes. A continuación, se formulan y describen los distintos modelos a comparar:
 
 \begin{itemize}
 	\item \textbf{Modelo Nulo:}	\\
 	Este modelo considera un intercepto constante como único predictor, sin incluir covariables específicas. La variabilidad entre sujetos y estímulos se captura a través de términos aleatorios. Sirve como punto de referencia para evaluar la mejora en la explicación del período preferido al introducir covariables.
 	\begin{equation}
 		\text{Período Preferido} \sim 1 + (1|\text{Sujeto}) + (1|\text{Estímulo})	
+		\label{m_1}
 	\end{equation}
 
 	\item\textbf{Modelo con Excentricidad:}\\
 	En este modelo, se agrega la excentricidad como predictor fijo. Se examina cómo la excentricidad se relaciona con el período preferido, considerando la variabilidad entre sujetos y estímulos. Explora si la excentricidad aporta información significativa sobre el período preferido en comparación con el Modelo Nulo.
 	\begin{equation}
 		\text{Período Preferido} \sim \text{Excentricidad} + (1|\text{Sujeto}) + (1|\text{Estímulo})	
+		\label{m_2}
 	\end{equation}
 
 	\item \textbf{Modelo con Excentricidad y Hemisferio:}\\
 	Este modelo incorpora tanto la excentricidad como el hemisferio como predictores fijos. Se busca evaluar cómo ambas variables influyen en el período preferido, considerando la variabilidad entre sujetos y estímulos. Extiende la exploración al agregar el hemisferio como predictor. Permite evaluar la contribución adicional del hemisferio en la explicación del período preferido.
 	\begin{equation}
 		\text{Período Preferido} \sim \text{Excentricidad} + \text{Hemisferio} + (1|\text{Sujeto}) + (1|\text{Estímulo})	
+		\label{m_3}
 	\end{equation}
 	
 \end{itemize}
 
-
 Este enfoque de comparación entre modelos proporciona perspectivas sobre la relevancia de las variables predictoras en la variabilidad del período preferido, facilitando la selección del modelo más informativo y ajustado a los datos observados.
 
-El Factor de Bayes se utiliza para comparar la evidencia a favor de diferentes modelos y, en el contexto de modelos lineales mixtos, puede ayudar a seleccionar el modelo que mejor se ajuste a los datos. La interpretación del Factor de Bayes implica comparar la probabilidad de los datos bajo cada modelo considerado.
+El BIC ayuda a evaluar la calidad de diferentes modelos estadísticos para los mismos datos. Se usa principalmente para la selección de modelos, especialmente en contextos donde se comparan varios modelos.
 
-Para calcular el Factor de Bayes, se emplea la siguiente fórmula:
 
-\[ BF_{ij} = \frac{P(\text{Datos}|\text{Modelo}_i)}{P(\text{Datos}|\text{Modelo}_j)} \]
-
-Donde:
-- \( BF_{ij} \) es el Factor de Bayes que compara el Modelo \(i\) con el Modelo \(j\).
-- \( P(\text{Datos}|\text{Modelo}_i) \) es la probabilidad de los datos bajo el Modelo \(i\).
-- \( P(\text{Datos}|\text{Modelo}_j) \) es la probabilidad de los datos bajo el Modelo \(j\).
-
-En este contexto, para calcular \( P(\text{Datos}|\text{Modelo}) \), se puede utilizar la verosimilitud marginal o integrar la verosimilitud sobre todos los parámetros del modelo. Dado que la integración exacta puede ser compleja, se recurre a métodos aproximados como la aproximación de Laplace o métodos de Monte Carlo.
-
-En términos más sencillos, el Factor de Bayes compara cuánto más probable es que los datos sean generados por un modelo en comparación con otro. Si el Factor de Bayes es mayor a 1, hay evidencia a favor del Modelo \(i\); si es menor a 1, hay evidencia a favor del Modelo \(j\). Se suelen considerar umbrales específicos (por ejemplo, 3 a 10) para clasificar la evidencia a favor de un modelo sobre otro.
-
-En tu caso, se calcularían los Factores de Bayes comparando los modelos formulados. Luego, se evaluaría qué modelo tiene un Factor de Bayes más alto en comparación con los demás, indicando que es más probable que describa mejor los datos observados. Este enfoque ayuda a seleccionar el modelo más adecuado considerando la complejidad del modelo y la calidad de ajuste a los datos.
 
 
 

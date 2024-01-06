@@ -1,6 +1,6 @@
 library(ggplot2)
 
-data <- read.csv("C:\\Users\\Marie\\Documents\\thesis\\tables\\tables_rois\\all_rois_table.csv")
+data <- read.csv("C:\\Users\\Marie\\Documents\\thesis\\tables\\merged_table.csv")
 
 data$preferred_period <-log(data$preferred_period)
 data <- data[data$preferred_period > -6,]
@@ -15,7 +15,7 @@ x_label <- "Excentricidad"
 leyend_label <- "Áreas"
 
 
-g <- ggplot(data,aes(x=eccen,y=preferred_period, color = varea)) + 
+g <- ggplot(data,aes(x=sigma_y,y=preferred_period, color = varea)) + 
   geom_smooth(method='lm', se=TRUE, aes(fill=varea)) + 
   theme_bw() + labs(
     x = x_label,

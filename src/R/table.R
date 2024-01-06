@@ -59,9 +59,10 @@ flextable::save_as_image(w, path = paste0(result_dir,'table_pp',".png"))
 #dt <- flextable::dim_pretty(nt)
 
 
-save(tab,file = paste0(result_dir,'tab_pp.csv'))
+#save(tab,file = paste0(result_dir,'tab_pp.csv'))
+# tab <- read.csv('C:\\Users\\Marie\\Documents\\thesis\\table_pp.csv')
 
-df <- data.frame(x = factor(tab$áreas,levels = tab$áreas), y = c(tab$Excentricidad.Coef,tab$Hemisferio.Coef,tab$`Excentricidad:Hemisferio.Coef`),group=rep(c('Excentricidad','Hemisferio','Excentricidad:Hemisferio'),each=12))
+df <- data.frame(x = factor(tab$áreas, levels = tab$áreas), y = c(tab$Excentricidad.Coef,tab$Hemisferio.Coef,tab$`Excentricidad:Hemisferio.Coef`),group=rep(c('Excentricidad','Hemisferio','Excentricidad:Hemisferio'),each=12))
 g <- ggplot(df, aes(x=x, y=y, group = group, color=group)) +  
   geom_line(linewidth = 1.5) + 
   geom_point(size=5, shape = 16) +
@@ -72,7 +73,7 @@ g <- ggplot(df, aes(x=x, y=y, group = group, color=group)) +
   ) + theme_bw()+
   scale_color_manual(
     name = '',
-    labels = c('Excentricidad','Hemisferio','Excentricidad:Hemisferio'),
+    labels = df$group,
     values = c('red','navy','forestgreen')
   )+theme(axis.text.x = element_text(size = 12),   # Ajusta el tamaño de las etiquetas del eje x
           axis.text.y = element_text(size = 12),
