@@ -16,16 +16,19 @@
 \usepackage{graphicx}
 \usepackage{newclude}
 \usepackage{hyperref}
+%\usepackage{caption}
+%\usepackage{subcaption}
 
 \floatstyle{plaintop}
 \restylefloat{table}
 \addbibresource{Bibliography.bib}
 % \setlength{\parskip}{\baselineskip}%
 \renewcommand{\tablename}{Tabla}
-\renewcommand{\listalgorithmcfname}{Índice de Algoritmos}
+%\renewcommand{\listalgorithmcfname}{Índice de Algoritmos}
+\renewcommand{\arraystretch}{2}
 %\dontprintsemicolon
-\SetAlgoNoEnd
-
+%\SetAlgoNoEnd
+%\captionsetup[figure]{justification=raggedright,singlelinecheck=false}
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
@@ -52,10 +55,10 @@
 
 \lstset{style=mystyle}
 
-\title{Modelación de la Especialización Hemisférica para Frecuencias Espaciales a través de Campos Receptivos Poblacionales}
+\title{Modelación de la Especialización Hemisférica del Cerebro para Frecuencias Espaciales a través de Campos Receptivos Poblacionales}
 \author{\\\vspace{0.25cm}Mari\'e del Valle Reyes}
 \advisor{\\\vspace{0.25cm}Dr. Mitchell Valdes Sosa\\\vspace{0.2cm}MSc. Ania Mesa Rodr\'iguez}
-\degree{Licenciado en Ciencia de la Computación}
+\degree{Licenciada en Ciencia de la Computación}
 \faculty{Facultad de Matemática y Computación}
 \date{\includegraphics[scale=0.4]{Graphics/qrcode-generado}\\\vspace{0.25cm} 2024}
 
@@ -76,15 +79,15 @@
 \newcommand{\minn}[1]{\min\left\{ #1 \right\} }
 \newcommand{\lldpcf}{1.25}
 \newcommand{\nnorm}[1]{\left\lvert #1 \right\rvert }
-\renewcommand{\lstlistingname}{Ejemplo de código}
-\renewcommand{\lstlistlistingname}{Ejemplos de código}
+\renewcommand{\lstlistingname}{}
+\renewcommand{\lstlistlistingname}{}
 
 \begin{document}
 
 \frontmatter
 \maketitle
 
-% \include{FrontMatter/Dedication}
+\include{FrontMatter/Dedication}
 \include{FrontMatter/Thanks}
 \include{FrontMatter/SupervisorOpinion}
 \include{FrontMatter/Abstract}
