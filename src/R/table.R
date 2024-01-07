@@ -11,7 +11,11 @@ result_dir <- "C:\\Users\\Marie\\Documents\\thesis\\"
 tables_dir <- "C:\\Users\\Marie\\Documents\\thesis\\tables\\tables_rois\\"
 rois <- c('V1', 'V2', 'V3', 'hV4', 'VO1', 'VO2', 'LO1', 'LO2', 'TO1','TO2','V3b','V3a')
 tab <- NULL
-
+BIC_1 <- c()
+BIC_2 <- c()
+BIC_3 <- c()
+BIC_4 <- c()
+  
 for (iroi in 1:12)
 {
   print(iroi) 
@@ -25,6 +29,12 @@ for (iroi in 1:12)
   model1 <- lmer(preferred_period ~ eccen  + (1 | subj) + (1| stimulus_superclass), data = data)
   model2 <- lmer(preferred_period ~ eccen + side + (1 | subj) + (1| stimulus_superclass), data = data)
   model3 <- lmer(preferred_period ~ eccen * side + (1 | subj) + (1| stimulus_superclass), data = data)
+  
+  BIC_1 <- c(BIC_1, BIC(model0))
+  BIC_2 <- c(BIC_2, BIC(model1))
+  BIC_3 <- c(BIC_3, BIC(model2))
+  BIC_4 <- c(BIC_4, BIC(model3))
+  
   
   BF_eccen = exp((BIC(model0)-BIC(model1))/2)
   print(BF_eccen)
@@ -73,7 +83,7 @@ g <- ggplot(df, aes(x=x, y=y, group = group, color=group)) +
   ) + theme_bw()+
   scale_color_manual(
     name = '',
-    labels = df$group,
+    labels = c("Excentricidad","Excentricidad:Hemisferio","Hemisferio"),
     values = c('red','navy','forestgreen')
   )+theme(axis.text.x = element_text(size = 12),   # Ajusta el tamaño de las etiquetas del eje x
           axis.text.y = element_text(size = 12),
@@ -87,3 +97,4 @@ png(paste0(result_dir,'effect_size_pp_coef.png'),family = "ArialMT", units = "cm
      width = 17.35, height = 15, pointsize = 18, res = 300)
 show(g)
 dev.off()
+

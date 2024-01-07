@@ -38,9 +38,9 @@ for (iroi in 1:12)
   
   data$side <- as.factor(data$side)
   
-  formula_full <- preferred_period~eccen*side + (1|subj) + (1|stimulus_superclass)
-  formula_null<- preferred_period~eccen + (1|subj) + (1|stimulus_superclass)
-  formula_additive <- preferred_period~eccen + side + (1|subj) + (1|stimulus_superclass)
+  formula_full <- sigma~eccen*side + (1|subj) + (1|stimulus_superclass)
+  formula_null<- sigma~eccen + (1|subj) + (1|stimulus_superclass)
+  formula_additive <- sigma~eccen + side + (1|subj) + (1|stimulus_superclass)
   
   model_full <- lmer(formula_full,data=data)
   summary(model_full)
@@ -67,9 +67,7 @@ for (iroi in 1:12)
       name = side_name,
       labels = side_labels,
       values = side_values
-    ) 
-  #+
-   # xlim(1, 6) + ylim(-2,2)
+    ) #+ xlim(1, 6) + ylim(-2,2)
   
   png(paste0(result_dir,rois[iroi],'_sigma_vs_eccen_hem_limitless.png'))
   show(p)

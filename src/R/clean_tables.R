@@ -13,5 +13,5 @@ for(iroi in 1:12){
   data <-data[data$eccen < 6,]
   
   
-  save(data,file = paste0(result_dir,rois[iroi],'_table_all_cleaned.csv'))
+  save(data,file = paste0(result_dir,'table_all_cleaned.csv'))
 }
