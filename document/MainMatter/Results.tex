@@ -1,6 +1,6 @@
 \chapter{Resultados}\label{chapter:results}
 
-En este cap\'itulo se presentan los hallazgos clave de nuestro análisis, enfocándose en los resultados relativos a la relación entre el per\'iodo preferido y la excentricidad en diferentes áreas visuales, así como su relevancia en la lateralización hemisférica.
+En este cap\'itulo se presentan los hallazgos clave del  análisis, enfoc\'andose en los resultados relativos a la relación entre el per\'iodo preferido y la excentricidad en diferentes áreas visuales, así como su relevancia en la lateralización hemisférica.
 
 \section{Análisis de la relación entre el tamaño de los pRF y la excentricidad}
 
@@ -11,7 +11,7 @@ En este cap\'itulo se presentan los hallazgos clave de nuestro análisis, enfoc�
 	\label{fig:sigma_vs_eccen}
 \end{figure}
 
-Se llevó a cabo un análisis para examinar la relación entre el tamaño del pRF y la excentricidad en el campo visual, aunque no constituye el enfoque principal de este estudio. En la Figura \ref{fig:sigma_vs_eccen}, presentamos las rectas de regresión correspondientes a la relaci\'on entre estas variables. Observamos que el tamaño del pRF tiende a incrementar con la excentricidad, una tendencia que se manifiesta consistentemente a través de las diferentes áreas examinadas. De manera notable, la pendiente de estas rectas de regresión muestra un aumento progresivo al pasar de áreas visuales tempranas, como V1-V3, a áreas de procesamiento visual de nivel superior, tal como TO1. Este hallazgo está en consonancia con investigaciones previas [\cite{wandell_computational_2015}] y refuerza la comprensión de que el tamaño del pRF se expande con la complejidad funcional y jerárquica de las áreas visuales.
+Se llevó a cabo un análisis para examinar la relación entre el tamaño del pRF y la excentricidad en el campo visual, aunque no constituye el enfoque principal de este estudio. En la Figura \ref{fig:sigma_vs_eccen}, presentamos las rectas de regresión correspondientes a la relaci\'on entre estas variables. Observamos que el tamaño del pRF tiende a incrementar con la excentricidad, una tendencia que se manifiesta consistentemente a través de las diferentes áreas examinadas. De manera notable, la pendiente de estas rectas de regresión muestra un aumento progresivo al pasar de áreas visuales tempranas, como V1-V3, a áreas de procesamiento visual de nivel superior, como TO1. Este hallazgo está en consonancia con investigaciones previas [\cite{wandell_computational_2015}] y refuerza la comprensión de que el tamaño del pRF se expande con la complejidad funcional y jerárquica de las áreas visuales.
 
 \section{Análisis de la relación entre el período preferido y la excentricidad}
 
@@ -32,7 +32,7 @@ Este análisis proporciona una comprensión más completa de cómo la excentrici
 
 
 \section{Resultados del modelo lineal mixto para el per\'iodo preferido en función de excentricidad y hemisferio}
-\todo{poner tabla}
+
 \begin{table}[h]
 	\centering
 	\resizebox{\textwidth}{!}{
@@ -63,7 +63,9 @@ Este análisis proporciona una comprensión más completa de cómo la excentrici
 
 En esta secci\'on, se aborda el núcleo central de esta tesis: el análisis del impacto de la frecuencia espacial sobre los hemisferios cerebrales. 
 
-Los resultados obtenidos del modelo lineal mixto \ref{mlm_pp}, se detallan en la Tabla \ref{tab:mlm_results_pp}. En esta figura, las filas ilustran las diferentes áreas visuales analizadas mediante el modelo \ref{mlm_pp}, mientras que las columnas, excepto la primera (\'Areas), representan las variables fijas con sus respectivos resultados:  estimación de los coeficientes (Coef), error estándar (SE) y t-valor (t-val). Adicionalmente, se insert\'o una columna con el factor de Bayes (BF10) con los resultados de la comparaci\'on de cada uno de los modelos propuestos en la secci\'on \ref{mlm}. El BF10 contenido en la columna Excentricidad es resultado de la comparaci\'on del modelo nulo (\ref{m_1}) con el modelo con excentricidad (\ref{m_2}). En la columna Hemisferio de la tabla, se muestra el BF10 de la comparaci\'on del modelos con excentricidad  y el modelo con excentricidad y hemisferio (\ref{m_3}). En la \'ultima columna se observa el factor BF10 del modelo con excentricidad y hemisferio comparado con el modelo con interacci\'on de excentricidad y hemisferio (\ref{mlm_pp}).
+En el modelo \ref{mlm_pp}, la variable de interés es el per\'iodo preferido, que representa el inverso de la frecuencia espacial. En este modelo, se busca explicar la relación entre el per\'iodo preferido y dos variables independientes: la excentricidad y el hemisferio. Además, se incorporan las diferencias entre sujetos y estímulos para obtener un entendimiento más completo de los factores que influyen en el mismo.
+
+Los resultados obtenidos de dicho modelo, se detallan en la Tabla \ref{tab:mlm_results_pp}. En esta tabla, las filas ilustran las diferentes áreas visuales analizadas mediante el modelo \ref{mlm_pp}, mientras que las columnas, excepto la primera (\'Areas), representan las variables fijas con sus respectivos resultados:  estimación de los coeficientes (Coef), error estándar (SE) y t-valor (t-val). Adicionalmente, se insert\'o una columna con el factor de Bayes (BF10) resultante de la comparaci\'on de cada uno de los modelos propuestos en la secci\'on \ref{mlm}. El BF10 contenido en la columna Excentricidad es resultado de la comparaci\'on del modelo nulo (\ref{m_1}) con el modelo con excentricidad (\ref{m_2}). En la columna Hemisferio de la tabla, se muestra el BF10 de la comparaci\'on del modelos con excentricidad  y el modelo aditivo con excentricidad y hemisferio (\ref{m_3}). En la \'ultima columna se observa el BF10 del modelo aditivo comparado con el modelo con interacci\'on de excentricidad y hemisferio (\ref{mlm_pp}).
 
 
 %\begin{figure}
@@ -73,9 +75,9 @@ Los resultados obtenidos del modelo lineal mixto \ref{mlm_pp}, se detallan en la
 %	\label{fig:mlm_results_pp}
 %\end{figure}
 
-En el modelo \ref{mlm_pp}, la variable de interés es el per\'iodo preferido, que representa el inverso de la frecuencia espacial. En este modelo, se busca explicar la relación entre el per\'iodo preferido y dos variables independientes: la excentricidad y el hemisferio. Además, se incorporan las diferencias entre sujetos y estímulos para obtener un entendimiento más completo de los factores que influyen en el mismo.
 
-En la Tabla \ref{tab:mlm_results_pp}, se aprecia que, con excepción de hV4 y VO1, el tamaño del efecto de la excentricidad (Ver Tabla \ref{tab:mlm_results_pp}, columna Excentricidad) es mayormente positivo, indicando un aumento en el per\'iodo preferido con la excentricidad. Este hallazgo es respaldado tanto por el valor t como por el factor de Bayes. Además, se observa un patrón consistente de incremento en la magnitud del efecto al pasar de áreas tempranas a aquellas de orden superior, corroborando lo evidenciado en la Figura \ref{fig:pp_vs_eccen}. En el caso de hV4, el coeficiente exhibe un signo negativo y una magnitud inferior en comparación con otras áreas, y es estadísticamente significativo según la prueba t de Student y  el factor de Bayes. Respecto a V01, su coeficiente es notablemente pequeño, y ninguna de las pruebas mencionadas evidencia significancia.
+
+En la Tabla \ref{tab:mlm_results_pp}, se aprecia que, con excepción de hV4 y VO1, el tamaño del efecto de la excentricidad (Ver Tabla \ref{tab:mlm_results_pp}, columna Excentricidad) es relativamente grande, lo cual indica un aumento en el per\'iodo preferido con la excentricidad. Este hallazgo es respaldado tanto por el t-valor como por el factor de Bayes. Además, se observa un patrón consistente de incremento en la magnitud del efecto al pasar de áreas tempranas a aquellas de orden superior, corroborando lo evidenciado en la Figura \ref{fig:pp_vs_eccen}. En el caso de hV4, el coeficiente exhibe un signo negativo y una magnitud inferior en comparación con otras áreas, y es estadísticamente significativo según la prueba t de Student y el factor de Bayes. Respecto a V01, su coeficiente es notablemente pequeño, y ninguna de las pruebas mencionadas evidencia significancia.
 
 \begin{figure}[h]
 	\centering
@@ -84,7 +86,7 @@ En la Tabla \ref{tab:mlm_results_pp}, se aprecia que, con excepción de hV4 y VO
 	\label{fig:coeff}
 \end{figure}
 
-Resulta notable que hay un efecto de hemisferio (Ver Tabla \ref{tab:mlm_results_pp}, columna Hemisferio) significativo en casi todas las áreas con excepción de V02, pero con coeficientes pequeños en V1, V2, TO1, y V3A . En contraste, las \'areas restantes (V3, hV4, VO1, LO1, LO2, TO2, V3B), presentan coeficientes relativamente grandes (Figura \ref{fig:coeff}), lo cual indica que  el per\'iodo preferido de los v\'ertices corticales en el hemisferio derecho es significativamente mayor que en el izquierdo. Al graficar (Ver Figura \ref{fig:hem}) la relaci\'on entre el per\'iodo preferido y la excentricidad de todas las \'areas visuales analizadas se pudo observar que esta diferencia es m\'as pronunciada en las \'areas V01 y hV4. 
+Resulta notable que hay un efecto de hemisferio (Ver Tabla \ref{tab:mlm_results_pp}, columna Hemisferio) significativo en casi todas las áreas con excepción de V02, pero con coeficientes pequeños en V1, V2, TO1, y V3a . En contraste, la mayor\'ia de las \'areas restantes (V3, hV4, VO1, LO1, TO2, V3b), presentan coeficientes relativamente grandes (Figura \ref{fig:coeff}), lo cual indica que  el per\'iodo preferido de los v\'ertices corticales en el hemisferio derecho es significativamente mayor que en el izquierdo. Al graficar (Ver Figura \ref{fig:hem}) la relaci\'on entre el per\'iodo preferido y la excentricidad de todas las \'areas visuales analizadas, se pudo observar que esta diferencia es m\'as pronunciada en las \'areas hV4 y VO1. 
 
 Las interacciones entre excentricidad y hemisferio (Ver Tabla \ref{tab:mlm_results_pp}, columna Excentricidad:Hemisferio), fueron significativas en varias áreas, pero su magnitud fue relativamente baja en todas las regiones analizadas.
 

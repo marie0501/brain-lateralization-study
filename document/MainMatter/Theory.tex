@@ -25,7 +25,7 @@ Basados en estas evidencias Robertson y colaboradores proponen el modelo del Dob
 
 La resonancia magnética funcional (fMRI) es una técnica no invasiva para estudiar la activación cerebral con gran resoluci\'on espacial. Mide los cambios en la oxigenación de la sangre y el flujo sanguíneo relacionados con la actividad neuronal, ya sea en respuesta a una determinada tarea o en reposo. El método más popular para realizar fMRI utiliza el contraste dependiente del nivel de oxigenación sanguínea (BOLD, por sus siglas en ingl\'es), que aprovecha las diferencias en las propiedades magnéticas de la hemoglobina oxigenada y desoxigenada. Cuando hay mayor actividad neuronal en un sitio se incrementa el flujo de sangre oxigenada a este [\cite{lindquist_principles_nodate}]. El cambio derivado de esto en la señal de resonancia magnética se denomina función de respuesta hemodinámica (HRF, por sus siglas en ingl\'es).
 
-Los datos adquiridos en un estudio de resonancia magnética funcional consisten en una secuencia de imágenes de resonancia magnética tridimensionales, cada una compuesta por una serie de elementos de volumen o vóxeles, uniformemente espaciados. Los vóxeles dividen el cerebro en una gran cantidad de cubos del mismo tamaño. Una imagen típica puede constar de aproximadamente 100.000 vóxeles, donde el valor de intensidad de la imagen correspondiente a cada vóxel representa la distribución espacial de la densidad del espín nuclear, que se relaciona con la oxigenación y el flujo de la sangre, en el área local. Durante un experimento de resonancia magnética funcional se obtienen entre 100 y 1.000 imágenes tridimensionales de todo el cerebro. 
+Los datos adquiridos en un estudio de resonancia magnética funcional consisten en una secuencia de imágenes de resonancia magnética tridimensionales, cada una compuesta por una serie de elementos de volumen o vóxeles, uniformemente espaciados. Los vóxeles dividen el cerebro en una gran cantidad de cubos del mismo tamaño. Una imagen típica puede constar de aproximadamente 100000 vóxeles, donde el valor de intensidad de la imagen correspondiente a cada vóxel representa la distribución espacial de la densidad del espín nuclear, que se relaciona con la oxigenación y el flujo de la sangre, en el área local. Durante un experimento de fMRI se obtienen entre 100 y 1000 imágenes tridimensionales de todo el cerebro. 
 
 Por tanto, fMRI resulta una herramienta ideal para examinar la organización de los circuitos neuronales en el hombre de forma no-invasiva, y en especial para ver los mecanismos neurales de la lateralización hemisférica de la percepción visual. Para ello vamos a utilizar el concepto de campo receptivo.
 
@@ -42,7 +42,7 @@ En [\cite{dumoulin_population_2008}] se f\'ormula un modelo matemático de pRF u
 
 En [\cite{zuiderbaan_modeling_2012}] se introduce un modelo de pRF basado en la función Diferencia de Gaussianas, mejorando la capacidad de representar respuestas inhibitorias y la supresión periférica en la corteza visual.
 
-En [\cite{kay_compressive_2013}] se desarrolla un modelo de pRF con una no linealidad estática compresiva, es decir, reduce la amplitud de las respuestas a medida que aumenta la intensidad del estímulo. Este modelo explica que la respuesta total a estímulos múltiples es menor que la suma de respuestas individuales. En el modelo propuesto en [\cite{dumoulin_population_2008}] la estimación de los parámetros de los pRF se llevó a cabo utilizando datos de series temporales de respuestas de fMRI (Ver Fig 1.1). El modelo se basa en la suposición de una relación lineal entre los niveles de oxigenación de la sangre (BOLD) y las señales de resonancia magnética. Esta relación se expresa mediante la ecuación:
+En [\cite{kay_compressive_2013}] se desarrolla un modelo de pRF con una no linealidad estática compresiva, es decir, reduce la amplitud de las respuestas a medida que aumenta la intensidad del estímulo. Este modelo explica que la respuesta total a estímulos múltiples es menor que la suma de respuestas individuales. En el modelo propuesto en [\cite{dumoulin_population_2008}] la estimación de los parámetros de los pRF se llevó a cabo utilizando datos de series temporales de respuestas de fMRI (Ver Fig \ref{fig:pRF}). El modelo se basa en la suposición de una relación lineal entre los niveles de oxigenación de la sangre (BOLD) y las señales de resonancia magnética. Esta relación se expresa mediante la ecuación:
 \begin{equation}
 	y(t)=p(t)\beta + e
 \end{equation}
@@ -50,7 +50,7 @@ donde $\beta$ es un factor de escala que tiene en cuenta las unidades desconocid
 
 La predicción $p(t)$ se calcula utilizando un modelo parametrizado de la población neuronal subyacente y el estímulo. Se emplea un modelo gaussiano bidimensional $g(x,y)$ para describir la respuesta de la población neuronal, el cual est\'a definido por tres par\'ametros $x_0$,  $y_0$ y $\sigma$,
 \begin{equation}
-	g(x,y)=exp-(\frac{(x-x_0)^2+(y-y_0)^2}{2\sigma^2})
+	g(x,y)=exp-\left(\frac{(x-x_0)^2+(y-y_0)^2}{2\sigma^2}\right)
 	\label{gaussian}
 \end{equation}
 donde ($x_0$,$y_0$) es el centro del pRF y $\sigma$ es la dispersión gaussiana o desviación estándar que caracteriza la extensi\'on del pRF. Estos parámetros están referidos a estímulos, por tanto, las unidades de $x_0$, $y_0$ y $\sigma$ están todas en grados de ángulo visual. La fórmula que describe el estímulo efectivo $s(x,y,t)$ es una función indicadora binaria que marca la posición de la apertura del estímulo en cada momento. La apertura del est\'imulo es la región específica de un estímulo visual que está siendo presentada o activada en un momento dado durante un experimento, por tanto, la función indicadora ser\'ia 1 en las posiciones dentro de la apertura y 0 fuera de ella.
@@ -61,13 +61,13 @@ Una vez obtenido un modelo de pRF determinado y un estímulo efectivo, se calcul
 	r(t)=\sum_{x,y}s(x,y,t)g(x,y)
 \end{equation}
 
-Luego, se obtiene la predicción $p(t)$ de la serie temporal al convolucionar $r(t)$ con un modelo de HRF, el cual se estima por separado para cada sujeto.
+Luego, se obtiene la predicción $p(t)$ de la serie temporal al convolucionar $r(t)$ con un modelo de funci\'on de respuesta hemodin\'amica (HRF, por sus siglas en ingl\'es), el cual se estima por separado para cada sujeto.
 
 \begin{equation}
 	p(t) = r(t) * h(t)
 \end{equation}
 
-La bondad de ajuste se estima calculando la suma de cuadrados residual (RSS, por sus siglas en ingl\'es) entre la predicción, $p(t)$, y los datos, $y(t)$. Este término de error se calcula teniendo en cuenta un factor de escala, $\beta$, que tiene en cuenta las unidades desconocidas de la señal de fMRI.
+La bondad de ajuste se estima calculando la suma residual de cuadrados (RSS, por sus siglas en ingl\'es) entre la predicción, $p(t)$, y los datos, $y(t)$. Este término de error se calcula teniendo en cuenta un factor de escala, $\beta$, que considera las unidades desconocidas de la señal de fMRI.
 
 \begin{equation}
 	RSS = \sum_{t}(y(t)-p(t)\beta)^2
@@ -77,7 +77,7 @@ Los parámetros óptimos de pRF se encuentran minimizando el RSS mediante una b�
 
 \begin{figure}
 	\centering
-	\includegraphics[scale=0.6]{../images/pRF model}
+	\includegraphics[scale=0.75]{../images/pRF model}
 	\caption{Diagrama de flujo que describe el procedimiento de estimación del modelo pRF. Tomado de [\cite{dumoulin_population_2008}].}
 	\label{fig:pRF}
 \end{figure}
@@ -86,32 +86,41 @@ El ajuste de pRF permite derivar varias descripciones detalladas de los datos ob
 
 \section{Mapa Retinotópico}
 
-La corteza visual humana está organizada en múltiples mapas retinotópicos [\cite{wandell_computational_2015}]. Un mapa retinotópico es una representación bidimensional de la superficie de la retina en una región específica del sistema visual del cerebro. En estos mapas se respeta la topología de la retina: ubicaciones cercanas en la retina se proyectan a áreas cercanas en la corteza. La corteza visual primaria (V1) es el punto de entrada de la información visual a la corteza, y el inicio de todas las rutas de procesamiento visual en el cerebro. En [\cite{benson_retinotopic_2012}] se demuestra que la topología superficial de la corteza occipital permite predecir con aceptable precisión la organización retinotópica de V1. Con medidas del ángulo polar y excentricidad de cada sitio de V1 (obtenidas con fMRI) se midió la localización de las respuestas neuronales en la corteza visual, y se desarrolló un modelo algebraico para ajustar estos datos. 
+La corteza visual humana está organizada en múltiples mapas retinotópicos [\cite{wandell_computational_2015}]. Un mapa retinotópico es una representación bidimensional de la superficie de la retina en una región específica del sistema visual del cerebro. Estos respetan la topología de la retina: ubicaciones cercanas en la retina se proyectan a áreas cercanas en la corteza. La corteza visual primaria (V1) es el punto de entrada de la información visual a la corteza, y el inicio de todas las rutas de procesamiento visual en el cerebro. En [\cite{benson_retinotopic_2012}] se demuestra que la topología superficial de la corteza occipital permite predecir con aceptable precisión la organización retinotópica de V1. Con medidas del ángulo polar y excentricidad de cada sitio de V1 (obtenidas con fMRI) se midió la localización de las respuestas neuronales en la corteza visual, y se desarrolló un modelo algebraico para ajustar estos datos. 
 
-La mayoría de los análisis de mapas retinotópicos con datos de fMRI han utilizado este enfoque basado en vóxeles. El método general es: (1) medir las respuestas al mapeo de estímulos en la corteza; (2) derivar coordenadas retinotópicas para cada vóxel o vértice de superficie analizando ondas viajeras o resolviendo el modelo de campo receptivo de población (pRF) [\cite{dumoulin_population_2008}], descrito en la sección anterior, para cada vóxel; (3) finalmente se identifican límites de cada área mediante inspección visual.
+La mayoría de los análisis de mapas retinotópicos con datos de fMRI han utilizado este enfoque basado en vóxeles. El método general es: (1) medir las respuestas al mapeo de estímulos en la corteza; (2) derivar coordenadas retinotópicas para cada vóxel o vértice de superficie analizando ondas viajeras, o resolviendo el modelo de campo receptivo de población (pRF) [\cite{dumoulin_population_2008}], descrito en la sección anterior, para cada vóxel; (3) finalmente identificar límites de cada área mediante inspección visual.
 
 Además de requerir mucho tiempo y esfuerzo, los mapas que resultan de este proceso conservan muchas fuentes comunes de error. Debido a las diversas fuentes de ruido, los mapas medidos tienen discontinuidades y a menudo omiten porciones del campo visual. Estas deficiencias del proceso de mapeo retinotópico tradicional se derivan del hecho de que se organizan en torno a la optimización del poder explicativo de las soluciones de retinotopía a partir de vóxeles individuales, en lugar de todo el campo visual o el área cortical. Como consecuencia, se producen mapas que no son uniformes ni completos, ni tienen en cuenta cómo el campo visual se deforma en la superficie cortical. Sin estos datos, la comparación de mapas entre sujetos es difícil y el examen cuantitativo preciso de las diferencias individuales es imposible.
 
-Una alternativa al modelado de vóxeles de datos de fMRI es construir un atlas retinotópico, un modelo computacional del mapeo entre la posición del campo visual y la estructura cortical. Los atlas generalmente se crean basándose en una descripción promedio de la función en la superficie cortical de un grupo de individuos, por tanto, carecen de las diferencias individuales de los sujetos. Esto llevó al desarrollo de un m\'etodo bayesiano que se describe en la próxima sección.
+Una alternativa al modelado de vóxeles de datos de fMRI es construir un atlas retinotópico, un modelo computacional del mapeo entre la posición del campo visual y la estructura cortical. Los atlas generalmente se crean basándose en una descripción promedio de la función en la superficie cortical de un grupo de individuos. En [\cite{wang_probabilistic_2015}] se desarrolla un atlas que define 25 \'areas visuales topogr\'aficas (Ver Figura \ref{fig:wang}), basadas en representación del espacio visual en sujetos individuales. Los datos de los sujetos se superpusieron, y cada regi\'on de inter\'es (ROI, por sus siglas en ingl\'es) se deline\'o como el c\'umulo de probabilidad en cada nodo (espacio de superficie) o v\'oxel (espacio de volumen). No obstante, dado que los datos se basan en la agregación de múltiples sujetos, puede haber variabilidad en la anatomía y función cerebral que no se captura completamente. Este problema llev\'o al desarrollo de un m\'etodo bayesiano que se describe en la pr\'oxima secci\'on.
+
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.7]{Graphics/brain_wang}
+	\caption{Esquema detallado de los bordes de 25 áreas visuales topográficas. Las áreas trazadas en la superficie cortical inflada en ambos hemisferios (LH, hemisferio izquierdo y RH, hemisferio derecho), se delinearon en sujetos individuales y se utilizaron para generar el atlas de superficie. Tomado de [\cite{wang_probabilistic_2015}]}
+	\label{fig:wang}
+\end{figure}
+
 
 
 \section{Mapa Retinotópico Bayesiano}
 
-El método bayesiano propuesto aborda la necesidad de ajustar mapas retinotópicos a la corteza visual de sujetos individuales sin intervención humana. Utiliza un modelo bayesiano que combina datos, como mediciones de v\'oxeles o vértices retinotópicos en un sujeto, con un modelo previo basado en un atlas derivado de datos poblacionales previamente medidos (como el estudio de 181 sujetos hecho por el Human Connectome Project [\cite{benson_human_2018}]). La propuesta sugiere que este enfoque tiene el potencial de ofrecer descripciones más precisas de los mapas retinotópicos en sujetos individuales, en comparación con el uso exclusivo de un atlas o mediciones individuales. Se utiliz\'o la formulaci\'on bayesiana siguiente, donde la hipótesis $H$ es la deformación particular de la superficie cortical y la evidencia $E$ es un conjunto particular de mediciones retinotópicas.
+El método bayesiano propuesto en [\cite{benson_bayesian_2018}], aborda la necesidad de ajustar mapas retinotópicos a la corteza visual de sujetos individuales sin intervención humana. Utiliza un modelo bayesiano que combina datos, como mediciones de v\'oxeles o vértices retinotópicos en un sujeto, con un modelo previo basado en un atlas derivado de datos poblacionales previamente medidos (como el estudio de 181 sujetos hecho por el Human Connectome Project [\cite{benson_human_2018}]). La propuesta sugiere que este enfoque tiene el potencial de ofrecer descripciones más precisas de los mapas retinotópicos en sujetos individuales, en comparación con el uso exclusivo de un atlas o mediciones individuales. Se utiliz\'o la formulaci\'on bayesiana siguiente, donde la hipótesis $H$ es la deformación particular de la superficie cortical y la evidencia $E$ es un conjunto particular de mediciones retinotópicas.
 \begin{equation}
 	P(H|E) = \dfrac{P(E|H)P(H)}{P(E)}
 \end{equation}
 
 
-\section{Representaci\'on del tama\~no de los pRFs y de las frecuencias espaciales preferidas de los v\'ertices corticales en diferentes \'areas visuales}\todo{cambiar t\'itulo}
+\section{Representaci\'on del tama\~no de los pRFs y de las frecuencias espaciales preferidas de los v\'ertices corticales en diferentes \'areas visuales}
 
 Con el propósito de obtener una comprensión de la visión humana, se realizan estudios que buscan caracterizar con precisión cómo los mapas retinotópicos, descritos en secciones anteriores, representan diversas propiedades visuales.
 
 En [\cite{henriksson_spatial_2008}] se midieron curvas de sintonización de frecuencia espacial en áreas como V1, V2, VP, V3, V4v, V3A, y V5+, utilizando fMRI. Se observó que la frecuencia espacial óptima disminuye con el aumento de la excentricidad visual y varía según la ubicación retinotópica. Estos hallazgos apoyan la idea de que diferentes áreas visuales procesan la información visual en distintas escalas espaciales.
 
-En [\cite{amano_visual_2009}] se analizan los mapas de campo visual y los tamaños de los pRF en el complejo MT+ humano, usando fMRI. Se halló que el tamaño de los pRF aumenta progresivamente desde V1/2/3 hasta LO-1/2 y TO-1/2, siendo TO-2 el área con los pRF más grandes. También observaron que, dentro de cada mapa, el tamaño de los pRF aumenta con la excentricidad.
+En [\cite{amano_visual_2009}] se analizan los mapas de campo visual y los tamaños de los pRF en el complejo MT+ humano, usando fMRI. Se halló que el tamaño de los pRF aumenta progresivamente desde V1/2/3 hasta LO-1/2 y TO-1/2, siendo TO2 el área con los pRF más grandes. También observaron que, dentro de cada mapa, el tamaño de los pRF aumenta con la excentricidad.
 
-En [\cite{silva_radial_2018}] se examina cómo la corteza visual humana representa el espacio visual. Se centra en las variaciones del tamaño de los pRF y el factor de magnificación cortical en diferentes ángulos polares en las áreas V1, V2 y V3 de la corteza visual. El factor de magnificaci\'on cortical es una medida de cuánto espacio en la corteza visual está asignado a percibir una unidad de área en el campo visual. Se encontr\'o que los cuadrantes derechos de las \'areas visuales V2 y V3 tienen tamaños de pRF más grandes que los cuadrantes izquierdos, pero con tamaños de efecto muy pequeños y que no hay una diferencia significativa en cuanto a cuadrantes en V1. \todo{annadir Silva}
+En [\cite{silva_radial_2018}] se examina cómo la corteza visual humana representa el espacio visual. Se centra en las variaciones del tamaño de los pRF y el factor de magnificación cortical en diferentes ángulos polares en las áreas V1, V2 y V3 de la corteza visual. El factor de magnificaci\'on cortical es una medida de cuánto espacio en la corteza visual está asignado a percibir una unidad de área en el campo visual. Se encontr\'o que los cuadrantes derechos de las \'areas visuales V2 y V3 tienen tamaños de pRF más grandes que los cuadrantes izquierdos, pero con tamaños de efecto muy pequeños, y que no hay una diferencia significativa en cuanto a cuadrantes en V1.
 
 
 En [\cite{aghajari_population_2020}] se aplica un modelo log-Gaussiano para estimar la sintonización de frecuencia espacial a nivel de cada vóxel cerebral, revelando cómo varía la sensibilidad a la frecuencia espacial en la corteza visual inferior. Se miden respuestas a estímulos visuales de diferentes frecuencias espaciales, a través de fMRI. Se analiz\'o la frecuencia espacial m\'axima promedio por rangos de excentricidad de \'areas visuales primarias en diferentes cuadrantes del campo visual. Los resultados indican que la frecuencia espacial preferida disminuye con la excentricidad visual y varía en función de la ubicación retinotópica. Además, se observa que el ancho de banda de sintonización depende de la excentricidad y está correlacionado con el pico de frecuencia espacial preferida.

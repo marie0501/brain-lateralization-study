@@ -65,7 +65,7 @@ nt <- nice_table(tab,separate.header = TRUE)
 #ft <- flextable::autofit(nt, add_w = 0, add_h = 0)
 #w<-flextable::width(ft,width=0.3)
 #flextable::save_as_image(w, path = paste0(result_dir,'table_pp',".png"))
-write.csv(nt, file = paste0(result_dir,"table_pp.csv"), row.names = FALSE)
+write.csv(tab, file = paste0(result_dir,"table_pp.csv"), row.names = FALSE)
 #dt <- flextable::dim_pretty(nt)
 
 
