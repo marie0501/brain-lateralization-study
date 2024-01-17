@@ -66,17 +66,22 @@ g <- ggplot(data,aes(x=sigma,y=preferred_period, color = varea)) +
  
 show(g)
 
-data <- read.csv("F:\\Users\\Marie\\Documents\\thesis\\tables\\V1_rois_table_cleaned.csv")
+data <- read.csv("C:\\Users\\Marie\\Documents\\thesis\\tables\\tables_rois\\hV4_table_all.csv")
+data$preferred_period <-log(data$preferred_period)
+data <- data[data$preferred_period > -6,]
+data <- data[data$gml_r2 > 1,]
+data <-data[data$eccen < 6,]
+
 data$side <- as.factor(data$side)
 side_labels = c('0'='izquierdo','1'='derecho')
 side_values = c('navy','red')
 side_name = 'Hemisferios'
 
-y_label <- "Período Preferido"#"Tamaño de pRF"
+y_label <- "Log Período Preferido"#"Tamaño de pRF"
 x_label <- "Excentridad"
 
 g <- ggplot(data,aes(x=eccen,y=preferred_period, color = side)) + 
-  geom_smooth(method='lm', se=TRUE, aes(fill=side)) + 
+  geom_point() + 
   theme_bw() + labs(
     x = x_label,
     y = y_label,
@@ -91,8 +96,7 @@ g <- ggplot(data,aes(x=eccen,y=preferred_period, color = side)) +
     labels = side_labels,
     values = side_values
   )+
-  xlim(0, 10) +  # Establecer límites en el eje x
-  ylim(0, 10)
+  xlim(1, 6) + ylim(-2,2)
 
 show(g)
 

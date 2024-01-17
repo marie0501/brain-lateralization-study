@@ -6,9 +6,10 @@ aspectratio=169, % Uncomment to set the aspect ratio to a 16:9 ratio which match
 
 \graphicspath{{Images/}{./}} % Specifies where to look for included images (trailing slash required)
 \usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule for better rules in tables
-
+\usepackage[spanish]{babel}
+\usepackage{caption}
 %\usepackage{appendixnumberbeamer} %If you want a separate slide counter for your appendix
-
+\usepackage{natbib}
 %%% Customize Theme %%%%%%%%%%%%%%%%%%%%%%
 \usetheme{Madrid} % You can use other themes too, but this changes many things. I've found Madrid to be the best for this color scheme
 
@@ -63,6 +64,7 @@ aspectratio=169, % Uncomment to set the aspect ratio to a 16:9 ratio which match
 %\setbeamercolor{block title example}{bg=cyan, fg=white}
 %\setbeamercolor{block body example}{bg=cyan!10}
 
+\setbeamertemplate{navigation symbols}{}
 %---------------------------------------------------------
 %	SELECT FONT THEME & FONTS
 %---------------------------------------------------------
@@ -71,6 +73,7 @@ aspectratio=169, % Uncomment to set the aspect ratio to a 16:9 ratio which match
 \usepackage[default]{opensans} % Use the Open Sans font for sans serif text
 \useinnertheme{circles}
 
+%\setbeamertemplate{headline}{\vskip0.1cm\hskip0.1cm\insertvrule{width0.1cm}{myGreen!90}\insertvrule{width0.01cm}{myGreen!90}\vskip-0.1cm}
 %---------------------------------------------------------
 %	SELECT OUTER THEME
 %---------------------------------------------------------
@@ -94,9 +97,9 @@ aspectratio=169, % Uncomment to set the aspect ratio to a 16:9 ratio which match
 
 \title[]{Modelación de la Especialización Hemisférica del Cerebro para Frecuencias Espaciales a través de Campos Receptivos Poblacionales}
 \subtitle{}
-\author[Mari\'e del Valle Reyes]{Mari\'e del Valle Reyes}
+\author[]{Mari\'e del Valle Reyes}
 
-\institute[]{\textbf{Tutores:} \\ Dr. Mitchell Valdes Sosa\\ Msc. Ania Mesa Rodr\'iguez }
+\institute[]{\textbf{Tutores:} \\ Dr. Mitchell Valdes Sosa\\ MSc. Ania Mesa Rodr\'iguez }
 
 \date[enero de 2024]
 
@@ -123,19 +126,19 @@ aspectratio=169, % Uncomment to set the aspect ratio to a 16:9 ratio which match
 	%---------------------------------------------------------
 	% The table of contents outputs the sections and subsections that appear in your presentation, specified with the standard \section and \subsection commands. You may either display all sections and subsections on one slide with \tableofcontents, or display each section at a time on subsequent slides with \tableofcontents[pausesections]. The latter is useful if you want to step through each section and mention what you will discuss.
 	
-	\begin{frame}
-		\frametitle{Contenidos} % Slide title, remove this command for no title
-		
-		\tableofcontents % Output the table of contents (all sections on one slide)
-		%\tableofcontents[pausesections] % Output the table of contents (break sections up across separate slides)
-	\end{frame}
+	%\begin{frame}
+	%	\frametitle{Contenidos} % Slide title, remove this command for no title
+	%	
+	%	\tableofcontents % Output the table of contents (all sections on one slide)
+	%	%\tableofcontents[pausesections] % Output the table of contents (break sections up across separate slides)
+	%\end{frame}
 	
 	%---------------------------------------------------------
 	%	PRESENTATION BODY SLIDES
 	%---------------------------------------------------------
 
 
-     \section{El Cerebro}
+     \section{Introducci\'on}
      
       \begin{frame}
      	\frametitle{El Cerebro}
@@ -153,7 +156,7 @@ aspectratio=169, % Uncomment to set the aspect ratio to a 16:9 ratio which match
      		\begin{column}{0.3\textwidth}
        		\begin{figure}
      			\centering
-     			\includegraphics[scale=0.7]{Graphics/female_brain}
+     			\includegraphics[scale=0.7]{Graphics/brain_pink}
      		\end{figure}
      		\end{column}
      		
@@ -285,15 +288,38 @@ aspectratio=169, % Uncomment to set the aspect ratio to a 16:9 ratio which match
      
      %------------------------------------------------
      \begin{frame}
-     	\frametitle{Frecuencia espacial de est\'imulos visuales}
-     
+     	\frametitle{Descomposici\'on de im\'agenes en componentes con diferentes frecuencias espaciales}   
      	
-     	Una imagen compleja puede descomponerse en componentes más simples, que varían en frecuencias diferentes.
-     
-    	\begin{figure}[h!]
-    		\centering
-    	   	\includegraphics[scale=0.3]{Graphics/sp}
-    	\end{figure} 	
+     	   	
+     	\begin{columns}[c] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
+     	\begin{column}{0.3\textwidth} % Right column width
+     		\centering
+     		\begin{figure}     				
+     			\includegraphics[scale=0.45]{Graphics/low_sf}
+     		\end{figure}
+     		\textit{Solo Frecuencias Bajas}
+     		
+     	\end{column}
+     	
+     	\begin{column}{0.3\textwidth}
+     		\centering
+     		\begin{figure}     				
+     			\includegraphics[scale=0.45]{Graphics/flower}
+     		\end{figure}
+     		\textit{Original}
+     	\end{column}
+     	
+     	\begin{column}{0.3\textwidth} % Left column width
+     		\centering
+     		\begin{figure}     				
+     			\includegraphics[scale=0.45]{Graphics/high_sf}
+     		\end{figure}
+     	
+     	\textit{Solo Frecuencias Altas}    		
+     		
+     	\end{column}
+     \end{columns}
+    	
      	
      	
      \end{frame}
@@ -302,41 +328,41 @@ aspectratio=169, % Uncomment to set the aspect ratio to a 16:9 ratio which match
 	\begin{frame}
 		\frametitle{Teor\'ia del Doble Filtraje por Frecuencia}
 		
-		\begin{columns}[c] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
-			\begin{column}{0.5\textwidth} % Right column width
-				\begin{enumerate}
-					\item Seleccionar un rango de operación en el espacio de frecuencias espaciales, de acuerdo con la escena visual a analizar.
-					\item Distribuir la información a los dos hemiferios.
-				\end{enumerate}	
-				
-			\end{column}
+		\begin{columns}[t] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment	
 		
-			\begin{column}{0.5\textwidth} % Left column width
-			\begin{figure}[h!]
-				\centering
-				\includegraphics[scale=0.3]{Graphics/dff}
+			\begin{column}{0.3\textwidth} % Left column width		
+			\begin{figure}
+				\captionsetup{font=tiny}
+				\includegraphics[scale=0.25]{Graphics/dff}
+				\caption{Tomado de \cite{flevaris_spatial_2016}}
 			\end{figure} 	
 				
 				
 			\end{column}
-		\end{columns}
 		
-		
+		\begin{column}{0.4\textwidth} % Right column width
+			\begin{enumerate}
+				\item Seleccionar un rango de operación.
+				\item Distribuir la información a los dos hemiferios.
+			\end{enumerate}	
+			
+		\end{column}
+		\end{columns}	
 		
 		
 	\end{frame}
 	%------------------------------------------------
 	\begin{frame}
-		\frametitle{Frecuencia espacial de est\'imulos visuales}
+		\frametitle{Lateralizaci\'on hemisf\'erica respecto a frecuencias espaciales de est\'imulos visuales}
 		
 		\begin{columns}[c] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
 			\begin{column}{0.3\textwidth} % Right column width
 				\centering
-				Hemisferio Izquierdo\\
+				\textbf{Hemisferio Izquierdo}\\
 				$\downarrow$\\
-				detalles finos, aspectos locales\\
+				\textbf{Percepci\'on Local}\\
 				$\downarrow$\\
-				frecuencias espaciales altas
+				\textbf{Frecuencias Espaciales Altas}
 				
 				
 			\end{column}
@@ -349,12 +375,13 @@ aspectratio=169, % Uncomment to set the aspect ratio to a 16:9 ratio which match
 			\end{column}
 			
 			\begin{column}{0.3\textwidth} % Left column width
-				\centering
-				Hemisferio Derecho\\				
+			\centering
+			\textbf{Hemisferio Derecho}\\
+			
+			$\downarrow$\\
+			\textbf{Percepci\'on Global}\\
 				$\downarrow$\\
-				aspectos globales\\
-				$\downarrow$\\
-				frecuencias espaciales bajas
+				\textbf{Frecuencias Espaciales Bajas}
 				
 				
 			\end{column}
@@ -364,160 +391,315 @@ aspectratio=169, % Uncomment to set the aspect ratio to a 16:9 ratio which match
 		
 		
 	\end{frame}
+
+
  %-----------------------------------------------------
 	\begin{frame}
-		\frametitle{fMRI}
-		\begin{block}{}
-			La resonancia magnética funcional (fMRI) es una técnica no invasiva para estudiar
-			la activación cerebral con gran resolución espacial. Mide los cambios en la oxigenación de la sangre y el flujo sanguíneo relacionados con la actividad neuronal.
-		\end{block}
-	
+		\frametitle{}
+		\textbf{A pesar de lo atractivo de la teor\'ia anterior, no se han identificado los mecanismos neurales que expliquen esta lateralizaci\'on hemisf\'erica del cerebro en la percepci\'on visual.}
+		\newline
+		
+		
 
 		
 	\end{frame}
-	
-	%------------------------------------------------
-	
-	\begin{frame}
-		\frametitle{pRF}
-	
-		
-		
-		
-	\end{frame}
-	
-	
-	%------------------------------------------------
-	\begin{frame}
-		\frametitle{Mapa Retinot\'opico}
-		
-			\begin{columns}[t] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
-			\begin{column}{0.5\textwidth} % Right column width
-				\centering
-				\begin{equation}
-					P(H|E) = \dfrac{P(E|H)P(H)}{P(E)}
-				\end{equation}
-				
-				
-			\end{column}
-			\begin{column}{0.5\textwidth} % Left column width
-				\centering
-				\begin{itemize} 			
-					\item $H$ es la deformación particular de la superficie cortical.		
-					\item $E$ es un conjunto particular de mediciones retinotópicas.
-				
-				\end{itemize}	
-				
-				
-			\end{column}
-		\end{columns}
-		
 
-	\end{frame}
+%-------------------------------------------
+%-----------------------------------------------------
+\begin{frame}
+	\frametitle{}
+	\textbf{A pesar de lo atractivo de la teor\'ia anterior, no se han identificado los mecanismos neurales que expliquen esta lateralizaci\'on hemisf\'erica del cerebro en la percepci\'on visual.}
+	\newline
+	
+	La soluci\'on posiblemente este en la modelaci\'on de \textbf{campos receptivos poblacionales} y \textbf{mapas retinot\'opicos}.
+	
+	
+	
+\end{frame}
 
+%-------------------------------------------
+\begin{frame}
+	\frametitle{Existen m\'as de 12 \'areas visuales con mapas retinot\'opicos}
+	\begin{columns}[c] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
+	\begin{column}{0.7\textwidth} % Right column width
+	\begin{figure}
+			\includegraphics[scale=0.55]{Graphics/brain_wang}
+		\captionsetup{font=tiny}
+		\caption{Tomado de \cite{wang_probabilistic_2015}}
+	\end{figure}	
+		
+	\end{column}
+	
+	\begin{column}{0.3\textwidth}
+		
+	\end{column}
+	
+	
+\end{columns}
+	
+	
 
-	\section{Objetivos} % Sections are added in order to Organize your presentation into discrete blocks, all sections and subsections are automatically output to the table of contents as an overview of the talk but NOT output in the presentation as separate slides
+\end{frame}
+
+%-------------------------------------------
+\begin{frame}
+	\frametitle{Existen m\'as de 12 \'areas visuales con mapas retinot\'opicos}
+	\begin{columns}[c] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
+		\begin{column}{0.7\textwidth} % Right column width
+			\begin{figure}
+				\includegraphics[scale=0.55]{Graphics/brain_wang}
+				\captionsetup{font=tiny}
+				\caption{Tomado de \cite{wang_probabilistic_2015}}
+			\end{figure}	
+			
+		\end{column}
+		
+		\begin{column}{0.35\textwidth}
+			\centering
+		\textbf{\textit{¿En cu\'ales de estas \'areas se presenta lateralizaci\'on hemisf\'erica?}}
+		\end{column}
+		
+		
+	\end{columns}
+	
+	
+	
+\end{frame}
+		
+	%-------------------------------------------
+	
+	
+\begin{frame}
+	\frametitle{Campos Receptivos de Poblaciones Neurales}
+	
+	\begin{block}{}
+		Modelos matemáticos que cuantifican y describen cómo las neuronas en un v\'ertice cortical responden a estímulos visuales. Estiman la \textbf{posición} y el \textbf{tamaño} del campo visual que afecta a un v\'ertice cortical.
+	\end{block}
+	
+	\begin{columns}
+		
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+			\centering
+			\captionsetup{font=tiny}
+			\includegraphics[scale=0.45]{Graphics/pRF2}
+			\caption{Tomado de \cite{benson_human_2018}}
+			\end{figure}
+		\end{column}
+		
+		\begin{column}{0.5\textwidth} % Right column width
+		
+			
+		\end{column}					
+		
+	\end{columns}
+	
+	
+	
+\end{frame}
+
 
 %------------------------------------------------
 \begin{frame}
-	\frametitle{Objetivo General}
-	El objetivo general de este estudio es analizar la especializaci\'on hemisférica en el procesamiento visual del cerebro humano.
+	\frametitle{Campos Receptivos de Poblaciones Neurales}
+	
+	\begin{block}{}
+		Modelos matemáticos que cuantifican y describen cómo las neuronas en un v\'ertice cortical responden a estímulos visuales. Estiman la \textbf{posición} y el \textbf{tamaño} del campo visual que afecta a un v\'ertice cortical.
+	\end{block}
+	
+	\begin{columns}
+		
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				\centering
+				\captionsetup{font=tiny}
+				\includegraphics[scale=0.45]{Graphics/pRF2}
+				\caption{Tomado de \cite{benson_human_2018}}
+			\end{figure}
+		\end{column}
+		
+		\begin{column}{0.5\textwidth} % Right column width
+				\centering
+			\textbf{\textit{¿En qu\'e difieren las propiedades de los campos receptivos en ambos hemisferios?}}
+			
+		\end{column}					
+		
+	\end{columns}
 	
 	
-	%		
+	
 \end{frame}
 
+
+
+%----------------------------------------------------------------
 \begin{frame}
-	\frametitle{Objetivos Espec\'ificos}
-	\begin{itemize}
-		\item[1.]  Aplicar modelos que estiman la frecuencia espacial preferida de los v\'ertices corticales.
-		
-		\item[2.] Implementar modelos estadísticos para explicar las diferencias en las frecuencias preferidas de los v\'ertices corticales entre hemisferios.	
-		
-		\item[3.] Analizar la lateralización hemisférica en diferentes áreas visuales.
-	\end{itemize}
+	\frametitle{Mapa Retinot\'opico Bayesiano}
 	
+	\begin{columns}
+		
+		\begin{column}{0.3\textwidth}
+			El \textbf{mapa bayesiano} combina:
+			\begin{itemize}
+				\item Mediciones promedio de la población.
+				\item Mediciones específicas de un sujeto.
+			\end{itemize}	
+		\end{column}
+		
+		\begin{column}{0.7\textwidth} % Right column width
+		
+			\begin{figure}
+				
+				\captionsetup{font=tiny}
+				\includegraphics[scale=0.4]{Graphics/bayesian}
+				\caption{Tomado de \cite{benson_bayesian_2018}}
+			\end{figure}
+		\end{column}					
+		
+	\end{columns}
 	
-	%		
+
+	
 \end{frame}
+%-------------------------------------------------
+
+
+	\section{Objetivos} % Sections are added in order to Organize your presentation into discrete blocks, all sections and subsections are automatically output to the table of contents as an overview of the talk but NOT output in the presentation as separate slides
 	
-	%------------------------------------------------
-	\section{Modelos}
 	%------------------------------------------------
 	\begin{frame}
-		\frametitle{Estimaci\'on de per\'iodo preferido}
+		\frametitle{Objetivo General}
+	\begin{columns}
 		
-			\begin{columns}[t] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
-			\begin{column}{0.5\textwidth} % Right column width
+		\begin{column}{0.2\textwidth}
+			
+		\end{column}
+		
+		\begin{column}{0.6\textwidth} % Right column width
+			\centering
+			\textbf{El objetivo general de este estudio es analizar la especializaci\'on hemisférica del cerebro para frecuencias espaciales mediante campos receptivos poblacionales.}
+			
+		\end{column}
+		\begin{column}{0.2\textwidth} % Right column width
+		
+		
+	\end{column}					
+		
+	\end{columns}
+	
+		
+		
+		%		
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Objetivos Espec\'ificos}
+		\begin{itemize}
+			\item[1.]  Aplicar modelos que estiman la frecuencia espacial preferida de los v\'ertices corticales.
+			
+			\item[2.] Implementar modelos estadísticos para explicar las diferencias en las frecuencias preferidas de los v\'ertices corticales entre hemisferios.	
+			
+			\item[3.] Analizar la lateralización hemisférica en diferentes áreas visuales.
+		\end{itemize}
+		
+		
+		%		
+	\end{frame}
+	
+	%------------------------------------------------
+	\section{Materiales y M\'etodos}
+	\begin{frame}
+		\frametitle{Datos}
+		
+		
+		Se utilizaron datos de 12 sujetos medidos por \cite{broderick_mapping_2022} estimulados con rejillas con diferente frecuencias espaciales.
+			
+		
+	
+		\begin{figure}
+			\centering
+			\captionsetup{font=tiny}
+			\includegraphics[scale=0.65]{Graphics/stimulus}
+			\caption{Tomado de \cite{broderick_mapping_2022}}
+		\end{figure}
+		
+		
+		
+	\end{frame}
+	
+	
+	%------------------------------------------------
+	\begin{frame}
+		\frametitle{Tipos de Datos}
+		
+		Utilizando Resonancicia Magn\'etica Funcional se obtuvieron:
+		\begin{itemize}
+			\item Estimaciones de amplitud de respuesta de las activaciones neuronales, a los est\'imulos visuales.
+			\item Soluciones de los \textit{Campos Receptivos de Poblaciones Neurales} (pRFs).
+			\item \textit{Mapas Retinot\'opicos Bayesianos}.
+			
+		\end{itemize}	
+		
+	\end{frame}
+
+	
+
+	%------------------------------------------------
+	\begin{frame}
+		\frametitle{Estimaci\'on de per\'iodo preferido de \cite{broderick_mapping_2022}}
+		
+		
 				\centering
-				\begin{equation}
-					\hat{\beta}_b(w_l) = A_b \cdot \exp\left(\frac{-(\log_2(w_l) + \log_2(p_b))^2}{2\sigma_b^2}\right)
-				\end{equation}	
+				\begin{equation*}
+					\hat{\beta}_b(w_l) = A_b \cdot \exp\left(\frac{-(\log_2(w_l) + \log_2(p_b))^2}{2\sigma_b^2}\right)					
+				\end{equation*}	
 				
 				
-			\end{column}
-			\begin{column}{0.5\textwidth} % Left column width
-				\centering
+		
 				\begin{itemize} 			
-					\item \(\hat{\beta}_b(w_l)\): Respuesta BOLD promedio en el intervalo de excentricidad \(b\) a la frecuencia espacial \(w_l\).		
+					\item \(\hat{\beta}_b(w_l)\): Respuesta neurales promedio en el intervalo de excentricidad \(b\) a la frecuencia espacial \(w_l\).		
 					\item \(A_b\): Ganancia de respuesta.
 					\item \(p_b\): Per\'iodo preferido.
 					\item \(\sigma_b\): Ancho de banda medido en octavas.
-				\end{itemize}	
-				
-				
-			\end{column}
-		\end{columns}
+				\end{itemize}					
 		
-		
+				
+	\end{frame}
 	
-	\end{frame}
-	%------------------------------------------------
-		%------------------------------------------------
-	\begin{frame}
-		\frametitle{Modelos lineales mixtos}
-		
-		
-			\begin{itemize}
-				\item \textbf{Modelo Nulo:}	\\			
-				\begin{equation}
-					\text{Período Preferido} \sim 1 + (1 | \text{Sujeto}) + (1 | \text{Estímulo})	
-					\label{m_1}
-				\end{equation}
-				
-				\item\textbf{Modelo con Excentricidad:}\\			
-				\begin{equation}
-					\text{Período Preferido} \sim \text{Excentricidad} + (1 | \text{Sujeto}) + (1 | \text{Estímulo})	
-					\label{m_2}
-				\end{equation}
-				
-				\item \textbf{Modelo Aditivo con Excentricidad y Hemisferio:}\\				
-				\begin{equation}
-					\text{Período Preferido} \sim \text{Excentricidad} + \text{Hemisferio} + (1 | \text{Sujeto}) + (1 | \text{Estímulo})	
-					\label{m_3}
-				\end{equation}
-			
-				\item \textbf{Modelo con Interacci\'on de Excentricidad y Hemisferio:}\\				
-				\begin{equation}
-					\text{Período Preferido} \sim  \text{Excentricidad} \times \text{Hemisferio} + (1 | \text{Sujeto}) + (1 | \text{Estímulo})	
-					\label{mlm_pp}
-				\end{equation}
-				
-				
-			\end{itemize}
-		
-		
-	\end{frame}
 	%------------------------------------------------
 	\section{Resultados}
+	
+	\begin{frame}
+		\frametitle{}
+		\centering
+	 	\textbf{ \Huge{Resultados}}
+	\end{frame}
 	%------------------------------------------------
 	\begin{frame}
 		\frametitle{Tama\~no de pRF crece con la excentricidad}
+		
+		\begin{columns}[t] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
+			
+			
+			\begin{column}{0.7\textwidth}
+				\begin{figure}
+					\centering
+				\includegraphics[scale=0.5]{../../../thesis_temp/document/Graphics/size_vs_eccen_bayesian}
+				\end{figure}
+			\end{column}
+		
+			\begin{column}{0.3\textwidth} % Right column width
+				\begin{itemize}
+					\item El tama\~no de los pRFs crece con la excentricidad.
+					\item La pendiente es mayor en \'areas visuales superiores (TO2).
+					
+				\end{itemize}
 				
-		\begin{figure}[h!]
-			\centering
-			\includegraphics[scale=0.5]{../../../thesis_temp/document/Graphics/size_vs_eccen_bayesian}
-		\end{figure}
+				
+				
+			\end{column}					
+			
+		\end{columns}
 		
 	\end{frame}
 	
@@ -525,11 +707,29 @@ aspectratio=169, % Uncomment to set the aspect ratio to a 16:9 ratio which match
 	\begin{frame}
 		\frametitle{Per\'iodo preferido y excentricidad}
 		
-		\begin{figure}[h!]
-			\centering
-			\includegraphics[scale=0.5]{../../../thesis_temp/document/Graphics/pp_vs_eccen}
-		\end{figure}
-		
+			\begin{columns}[t] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
+			
+			
+			\begin{column}{0.7\textwidth}
+				\begin{figure}
+					
+					\includegraphics[scale=0.5]{../../../thesis_temp/document/Graphics/pp_vs_eccen}
+				\end{figure}
+			\end{column}
+			
+			\begin{column}{0.3\textwidth} % Right column width
+				\begin{itemize}
+					\item Per\'iodo preferido crece en mayor\'ia de \'areas.
+					\item Pendiente mayor en \'areas visuales superiores.
+					
+				\end{itemize}
+				
+				
+				
+			\end{column}					
+			
+		\end{columns}
+				
 		
 		
 	\end{frame}
@@ -537,13 +737,89 @@ aspectratio=169, % Uncomment to set the aspect ratio to a 16:9 ratio which match
 	%------------------------------------------------
 	%------------------------------------------------
 	\begin{frame}
-		\frametitle{Tabla con resultados}
-		\begin{figure}
-			\centering
-			\includegraphics[scale=0.45]{Graphics/table_pp}
-		\end{figure}
+		\frametitle{Modelo lineal mixto para per\'iodo preferido de v\'ertices corticales}
+		
+		Se construy\'o un modelo lineal mixto que explica las relaciones anteriores, as\'i como la lateralizaci\'on hemisf\'erica del cerebro.
+		
+		\begin{equation*}
+			\text{Período Preferido} \sim  \text{Excentricidad} \times \text{Hemisferio} + (1 | \text{Sujeto}) + (1 | \text{Estímulo})	
+			\label{mlm_pp}
+		\end{equation*}
 		
 	\end{frame}
+
+	\begin{frame}
+		\frametitle{Tama\~no de efecto de variables fijas del modelo}	
+		
+			
+			 \begin{itemize}
+			 	\item Efecto de la \textbf{excentricidad} notable en áreas superiores como TO1 y TO2.
+			 	\item La interacción \textbf{excentricidad:hemisferio} es pequeña en todas  las áreas.
+			 	\item Efecto del \textbf{hemisferio} es grande en hV4, VO1, LO1 y muy pequeño en LO2.
+			 \end{itemize}
+		
+				\begin{figure}
+					\centering
+					\includegraphics[scale=0.35]{Graphics/effect_size_coef_pp}
+				\end{figure}				
+				
+		
+		
+	
+		
+		
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Resultados del modelo respecto a los hemisferios}
+		
+		La diferencia entre hemisferios es m\'as pronunciada en las áreas hV4 y VO1.		
+			
+			\begin{figure}
+				\centering
+			 	\includegraphics[scale=0.5]{Graphics/hv4}
+			\end{figure}
+	
+	\end{frame}
+
+	
+	%------------------------------------------------
+	%\section{Modelos}
+	
+	%------------------------------------------------
+	
+	%------------------------------------------------
+	%\begin{frame}
+	%	\frametitle{Modelo lineal mixto}	
+	%	
+	%	
+	%	\begin{itemize}
+	%		\item \textbf{Modelo Nulo:}	\\			
+	%		\begin{equation*}
+	%			\text{Período Preferido} \sim 1 + (1 | \text{Sujeto}) + (1 | \text{Estímulo})	
+	%			\label{m_1}
+	%		\end{equation*}
+	%		
+	%		\item\textbf{Modelo con Excentricidad:}\\			
+	%		\begin{equation*}
+	%			\text{Período Preferido} \sim \text{Excentricidad} + (1 | \text{Sujeto}) + (1 | \text{Estímulo})	
+	%			\label{m_2}
+	%		\end{equation*}
+	%		
+	%		\item \textbf{Modelo Aditivo con Excentricidad y Hemisferio:}\\				
+	%		\begin{equation*}
+	%			\text{Período Preferido} \sim \text{Excentricidad} + \text{Hemisferio} + (1 | \text{Sujeto}) + (1 | \text{Estímulo})	
+	%			\label{m_3}
+	%		\end{equation*}
+	%		
+	%		\item \textbf{Modelo con Interacci\'on de Excentricidad y Hemisferio:}\\				
+	%		
+	%		
+	%		
+	%	\end{itemize}
+	%	
+	%	
+	%\end{frame}
 	
 	%------------------------------------------------
 		%------------------------------------------------
@@ -558,17 +834,220 @@ aspectratio=169, % Uncomment to set the aspect ratio to a 16:9 ratio which match
 	\section{Conclusión}
 	%------------------------------------------------
 	
-	
 	\begin{frame}
+		\frametitle{Conclusiones}
 		
-        \centering		
-		\LARGE Gracias
+	
 		
+	\end{frame}
+
+		\begin{frame}
+		\frametitle{Conclusiones}
+		
+		\begin{minipage}[t][0.8\textheight][t]{\textwidth}
+			\begin{itemize}
+				\item[1.] Se estim\'o el período preferido (el inverso de la frecuencia espacial preferida) de los vértices corticales en diferentes áreas visuales.
+				
+			\end{itemize}
+		\end{minipage}
 		
 		
 		
 	\end{frame}
+
+		\begin{frame}
+		\frametitle{Conclusiones}
+			\begin{minipage}[t][0.8\textheight][t]{\textwidth}
+			\begin{itemize}
+				\item[1.] Se estim\'o el período preferido (el inverso de la frecuencia espacial preferida) de los vértices corticales en diferentes áreas visuales.
+				\item  [2.] Se utiliz\'o un modelo lineal mixto para interpretar los resultados del período preferido estimado.
+			\end{itemize}
+		\end{minipage}
+		
+		
+	\end{frame}
+
+		\begin{frame}
+		\frametitle{Conclusiones}
+			\begin{minipage}[t][0.8\textheight][t]{\textwidth}
+			\begin{itemize}
+				 \item[1.] Se estim\'o el período preferido (el inverso de la frecuencia espacial preferida) de los vértices corticales en diferentes áreas visuales.
+				\item  [2.] Se utiliz\'o un modelo lineal mixto para interpretar los resultados del período preferido estimado.
+				\item [3.] Se observ\'o que el período preferido de los v\'ertices corticales varía entre los hemisferios cerebrales en diversas áreas visuales, lo cual est\'a en consonancia con datos neurofisiológicos y neuropsicológicos previos  sobre la lateralización hemisférica.
+			\end{itemize}
+		\end{minipage}
+	
+		
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Recomendaciones}
+		
+	\end{frame}
+       
+    \begin{frame}
+    	\frametitle{Recomendaciones}
+    	\begin{minipage}[t][0.8\textheight][t]{\textwidth}
+    		\begin{itemize}
+    				\item [1.] Revisar los datos actuales utilizando diferentes atlas retinotópicos.
+    			
+    		\end{itemize}
+    	\end{minipage}
+    	
+   \end{frame} 
+    \begin{frame}
+    	\frametitle{Recomendaciones}
+    	
+    	\begin{minipage}[t][0.8\textheight][t]{\textwidth}
+    		\begin{itemize}
+    			\item [1.] Revisar los datos actuales utilizando diferentes atlas retinotópicos.
+    		
+    		\item [2.] Desarrollar simulaciones con redes neuronales convolucionales que incorporen los parámetros fisiológicos de este estudio. 
+    		
+    			
+    		\end{itemize}
+    	\end{minipage}
+    	
+    	 
+    \end{frame}
+    \begin{frame}
+    	\frametitle{Recomendaciones}
+    	
+    	\begin{minipage}[t][0.8\textheight][t]{\textwidth}
+    		\begin{itemize}
+    			\item [1.] Revisar los datos actuales utilizando diferentes atlas retinotópicos.
+    		
+    			\item [2.] Desarrollar simulaciones con redes neuronales convolucionales que incorporen los parámetros fisiológicos de este estudio. 
+    		
+    			\item[3.] Aplicar la metodología de investigación a un conjunto de datos más amplio para obtener resultados más sólidos y confiables.
+    			
+    		\end{itemize}
+    	\end{minipage}
+    	
+   \end{frame} 
+    \begin{frame}
+    	\frametitle{Recomendaciones}
+    	
+    		\begin{minipage}[t][0.8\textheight][t]{\textwidth}
+    		\begin{itemize}
+    			\item [1.] Revisar los datos actuales utilizando diferentes atlas retinotópicos.
+    		
+    		\item [2.] Desarrollar simulaciones con redes neuronales convolucionales que incorporen los parámetros fisiológicos de este estudio. 
+    		
+    		\item[3.] Aplicar la metodología de investigación a un conjunto de datos más amplio para obtener resultados más sólidos y confiables.
+    		
+    		\item[4.] Realizar experimentos de fMRI enfocados en medir la preferencia por distintas frecuencias espaciales en ambos hemisferios teniendo en cuenta la variación en el espectro de los estímulos visuales con la atenci\'on. 
+    			
+    		\end{itemize}
+    	\end{minipage}
+    
+    \end{frame}
+   
 	
 
+
+	\begin{frame}
+		\frametitle{Preguntas}
+			
+		
+	\end{frame}
+
+	\begin{frame}
+	\frametitle{Preguntas}
+	\begin{itemize}
+		\item[1.] Valore como pudiera afectar los resultados obtenidos en este estudio la elección de otro tipo de atlas cerebral. ¿Es posible que la delimitación de las áreas juegue un papel en el subconjunto de resultados negativos del estudio?	
+		
+		
+	\end{itemize}     
+	
+	
+	
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Atlas Cerebral}
+	
+		\begin{columns}[t] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment			
+		\begin{column}{0.5\textwidth} % Left column width
+			
+			\begin{figure}			
+				\centering
+				\includegraphics[scale=0.25]{Graphics/sereno}
+				\captionsetup{font=tiny}
+				\caption{Tomado de \cite{sereno_topological_2022}}
+			\end{figure}		
+		\end{column}
+		\begin{column}{0.5\textwidth} % Right column width
+		\begin{figure}			
+			\centering
+			\includegraphics[scale=0.35]{Graphics/glasser_wang_eccen}
+			\captionsetup{font=tiny}
+			\caption{Tomado de \cite{benson_human_2018}}
+		\end{figure}
+			
+			
+		\end{column}
+		
+	
+		
+		
+	\end{columns}
+	
+
+
+\end{frame}
+
+	\begin{frame}
+	\frametitle{Preguntas}
+	\begin{itemize}		
+		
+		\item[2.] Resulta curioso que el efecto de disminución del logaritmo del período preferido con respecto a la excentricidad en hV4 y VO1 parece estar concentrado en el hemisferio derecho. ¿Pudiera comentar este resultado?	 
+		
+	\end{itemize}     
+	
+	
+	
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Resultado hemisferios en hV4 y VO1}
+	
+		\begin{figure}			
+		\centering
+		\includegraphics[scale=0.5]{Graphics/hV4}
+		\captionsetup{font=tiny}
+		
+	\end{figure}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Resultado hemisferios en hV4 y VO1}
+	
+
+		\begin{figure}			
+			\centering
+			\includegraphics[scale=0.4]{Graphics/hv4_VO1}
+						
+		\end{figure}
+		
+	
+	
+\end{frame}
+
+
+
+	
+	\begin{frame}
+	\frametitle{Referencias}
+	     
+	\bibliographystyle{apalike}
+	\bibliography{biblio}
+	
+	
+	
+	\end{frame}
 	
 \end{document} 
