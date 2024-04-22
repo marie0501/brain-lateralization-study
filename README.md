@@ -1,2 +1,2 @@
 # thesis
-Study of the connective fields of the brain.
+Study of the population receptive fields (pRFs) of the human brain.
