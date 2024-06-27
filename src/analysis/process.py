@@ -52,8 +52,8 @@ def main(base_dir, atlas_dir, atlas_name, output_file):
     print("DataFrame built and saved successfully.")
 
 
-base_dir = '/Users/mariedelvalle/Documents/data/HCP/prfresultsmgz'
-output_file = 'HCP_data.csv'
-atlas_dir = '/Users/mariedelvalle/Documents/data/HCP/atlasmgz'
-atlas_name = 'Wang2015'
-main(base_dir, atlas_dir, atlas_name, output_file)
+# base_dir = '/Users/mariedelvalle/Documents/data/HCP/prfresultsmgz'
+# output_file = 'HCP_data.csv'
+# atlas_dir = '/Users/mariedelvalle/Documents/data/HCP/atlasmgz'
+# atlas_name = 'Wang2015'
+# main(base_dir, atlas_dir, atlas_name, output_file)
